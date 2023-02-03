@@ -13,7 +13,7 @@ public class Project : EntityBase, IAggregateRoot
   /// <summary>
   /// TODO.
   /// </summary>
-  private List<ToDoItem> _items = new List<ToDoItem>();
+  private readonly List<ToDoItem> _items = new List<ToDoItem>();
 
   /// <summary>
   /// Initializes a new instance of the <see cref="Project"/> class.
