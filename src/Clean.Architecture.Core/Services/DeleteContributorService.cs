@@ -1,3 +1,4 @@
+namespace Clean.Architecture.Core.Services;
 using Ardalis.Result;
 using Clean.Architecture.Core.ContributorAggregate;
 using Clean.Architecture.Core.ContributorAggregate.Events;
@@ -5,7 +6,7 @@ using Clean.Architecture.Core.Interfaces;
 using Clean.Architecture.SharedKernel.Interfaces;
 using MediatR;
 
-namespace Clean.Architecture.Core.Services;
+
 
 public class DeleteContributorService : IDeleteContributorService
 {
