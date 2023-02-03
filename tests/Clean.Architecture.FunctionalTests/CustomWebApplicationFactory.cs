@@ -34,34 +34,32 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
 
     // Create a scope to obtain a reference to the database
     // context (AppDbContext).
-    using (var scope = serviceProvider.CreateScope())
+    using var scope = serviceProvider.CreateScope();
+    var scopedServices = scope.ServiceProvider;
+    var db = scopedServices.GetRequiredService<AppDbContext>();
+
+    var logger = scopedServices
+      .GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
+
+    // Ensure the database is created.
+    db.Database.EnsureCreated();
+
+    try
     {
-      var scopedServices = scope.ServiceProvider;
-      var db = scopedServices.GetRequiredService<AppDbContext>();
+      // Can also skip creating the items
+      // if (!db.ToDoItems.Any())
+      // {
+      // Seed the database with test data.
+      SeedData.PopulateTestData(db);
 
-      var logger = scopedServices
-        .GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
-
-      // Ensure the database is created.
-      db.Database.EnsureCreated();
-
-      try
-      {
-        // Can also skip creating the items
-        // if (!db.ToDoItems.Any())
-        // {
-        // Seed the database with test data.
-        SeedData.PopulateTestData(db);
-
-        // }
-      }
-      catch (Exception ex)
-      {
-        logger.LogError(
-          ex,
-          "An error occurred seeding the " + "database with test messages. Error: {exceptionMessage}",
-          ex.Message);
-      }
+      // }
+    }
+    catch (Exception ex)
+    {
+      logger.LogError(
+        ex,
+        "An error occurred seeding the " + "database with test messages. Error: {ExceptionMessage}",
+        ex.Message);
     }
 
     return host;

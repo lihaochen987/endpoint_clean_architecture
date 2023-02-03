@@ -31,7 +31,9 @@ public class ProjectCreate : IClassFixture<CustomWebApplicationFactory<WebMarker
   {
     var result = await _client.GetAndDeserializeAsync<IEnumerable<ProjectDTO>>("/api/projects");
 
-    Assert.Single(result);
-    Assert.Contains(result, i => i.Name == SeedData.TestProject1.Name);
+    IEnumerable<ProjectDTO> projectDtos = result.ToList();
+
+    Assert.Single(projectDtos);
+    Assert.Contains(projectDtos, i => i.Name == SeedData.TestProject1.Name);
   }
 }
