@@ -11,7 +11,7 @@ public abstract class EntityBase
   /// <summary>
   /// TODO.
   /// </summary>
-  private List<DomainEventBase> _domainEvents = new ();
+  private readonly List<DomainEventBase> _domainEvents = new ();
 
   /// <summary>
   /// Gets or sets the .
