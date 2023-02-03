@@ -32,6 +32,6 @@ public class ProjectList : IClassFixture<CustomWebApplicationFactory<WebMarker>>
     var result = await _client.GetAndDeserializeAsync<ProjectListResponse>("/Projects");
 
     Assert.Single(result.Projects);
-    Assert.Contains(result.Projects, i => i.Name == SeedData.TestProject1.Name);
+    Assert.Contains(result.Projects, i => i.name == SeedData.TestProject1.Name);
   }
 }
