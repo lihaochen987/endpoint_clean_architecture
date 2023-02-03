@@ -6,12 +6,12 @@ using Xunit;
 /// <summary>
 /// TODO.
 /// </summary>
-public class Project_AddItem
+public class ProjectAddItem
 {
   /// <summary>
   /// TODO.
   /// </summary>
-  private Project testProject = new Project("some name", PriorityStatus.Backlog);
+  private readonly Project _testProject = new Project("some name", PriorityStatus.Backlog);
 
   /// <summary>
   /// TODO.
@@ -21,9 +21,9 @@ public class Project_AddItem
   {
     var testItem = new ToDoItem { Title = "title", Description = "description" };
 
-    testProject.AddItem(testItem);
+    _testProject.AddItem(testItem);
 
-    Assert.Contains(testItem, testProject.Items);
+    Assert.Contains(testItem, _testProject.Items);
   }
 
   /// <summary>
@@ -32,11 +32,12 @@ public class Project_AddItem
   [Fact]
   public void ThrowsExceptionGivenNullItem()
   {
-#nullable disable
-    Action action = () => testProject.AddItem(null);
-#nullable enable
+    void Action()
+    {
+      _testProject.AddItem(null!);
+    }
 
-    var ex = Assert.Throws<ArgumentNullException>(action);
+    var ex = Assert.Throws<ArgumentNullException>(Action);
     Assert.Equal("newItem", ex.ParamName);
   }
 }

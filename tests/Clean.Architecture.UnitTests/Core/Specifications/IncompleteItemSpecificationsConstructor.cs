@@ -26,8 +26,9 @@ public class IncompleteItemsSpecificationConstructor
 
     var filteredList = spec.Evaluate(items);
 
-    Assert.Contains(item1, filteredList);
-    Assert.Contains(item2, filteredList);
-    Assert.DoesNotContain(item3, filteredList);
+    IEnumerable<ToDoItem> toDoItems = filteredList.ToList();
+    Assert.Contains(item1, toDoItems);
+    Assert.Contains(item2, toDoItems);
+    Assert.DoesNotContain(item3, toDoItems);
   }
 }
