@@ -1,7 +1,11 @@
-﻿using Ardalis.Specification;
+﻿namespace Clean.Architecture.SharedKernel.Interfaces;
+using Ardalis.Specification;
 
-namespace Clean.Architecture.SharedKernel.Interfaces;
-
-public interface IReadRepository<T> : IReadRepositoryBase<T> where T : class, IAggregateRoot
+/// <summary>
+/// Specifies that the Repository is read-only.
+/// </summary>
+/// <typeparam name="T">The DbContext relating to that Repository.</typeparam>
+public interface IReadRepository<T> : IReadRepositoryBase<T>
+    where T : class, IAggregateRoot
 {
 }
