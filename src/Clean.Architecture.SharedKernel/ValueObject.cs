@@ -33,6 +33,12 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
     return a.Equals(b);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="a">TODO LATER.</param>
+  /// <param name="b">TODO LATER2.</param>
+  /// <returns>TODO LATER3.</returns>
   public static bool operator !=(ValueObject a, ValueObject b)
   {
     return !(a == b);

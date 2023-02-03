@@ -1,10 +1,17 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.IntegrationTests.Data;
+
+using Core.ProjectAggregate;
 using Xunit;
 
-namespace Clean.Architecture.IntegrationTests.Data;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class EfRepositoryDelete : BaseEfRepoTestFixture
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task DeletesItemAfterAddingIt()
   {
@@ -18,7 +25,8 @@ public class EfRepositoryDelete : BaseEfRepoTestFixture
     await repository.DeleteAsync(project);
 
     // verify it's no longer there
-    Assert.DoesNotContain(await repository.ListAsync(),
+    Assert.DoesNotContain(
+        await repository.ListAsync(),
         project => project.Name == initialName);
   }
 }

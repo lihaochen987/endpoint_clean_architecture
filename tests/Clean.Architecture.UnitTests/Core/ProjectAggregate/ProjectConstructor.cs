@@ -1,19 +1,20 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
+
+using Clean.Architecture.Core.ProjectAggregate;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class ProjectConstructor
 {
   private string _testName = "test name";
   private PriorityStatus _testPriority = PriorityStatus.Backlog;
   private Project? _testProject;
 
-  private Project CreateProject()
-  {
-    return new Project(_testName, _testPriority);
-  }
-
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void InitializesName()
   {
@@ -22,6 +23,9 @@ public class ProjectConstructor
     Assert.Equal(_testName, _testProject.Name);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void InitializesPriority()
   {
@@ -30,6 +34,9 @@ public class ProjectConstructor
     Assert.Equal(_testPriority, _testProject.Priority);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void InitializesTaskListToEmptyList()
   {
@@ -38,11 +45,19 @@ public class ProjectConstructor
     Assert.NotNull(_testProject.Items);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void InitializesStatusToInProgress()
   {
     _testProject = CreateProject();
 
     Assert.Equal(ProjectStatus.Complete, _testProject.Status);
+  }
+
+  private Project CreateProject()
+  {
+    return new Project(_testName, _testPriority);
   }
 }

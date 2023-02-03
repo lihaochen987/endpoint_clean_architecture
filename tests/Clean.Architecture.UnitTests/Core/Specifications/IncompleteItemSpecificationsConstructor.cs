@@ -1,11 +1,17 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.Specifications;
+
+using Clean.Architecture.Core.ProjectAggregate;
 using Clean.Architecture.Core.ProjectAggregate.Specifications;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.Specifications;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class IncompleteItemsSpecificationConstructor
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void FilterCollectionToOnlyReturnItemsWithIsDoneFalse()
   {

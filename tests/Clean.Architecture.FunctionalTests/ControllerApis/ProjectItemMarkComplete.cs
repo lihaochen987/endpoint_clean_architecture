@@ -1,20 +1,31 @@
-﻿using System.Text;
-using Clean.Architecture.Web;
+﻿namespace Clean.Architecture.FunctionalTests.ControllerApis;
+
+using System.Text;
+using Web;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace Clean.Architecture.FunctionalTests.ControllerApis;
-
+/// <summary>
+/// TODO.
+/// </summary>
 [Collection("Sequential")]
 public class ProjectItemMarkComplete : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ProjectItemMarkComplete"/> class.
+  /// </summary>
+  /// <param name="factory">TODO LATER.</param>
   public ProjectItemMarkComplete(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task MarksIncompleteItemComplete()
   {
@@ -27,6 +38,6 @@ public class ProjectItemMarkComplete : IClassFixture<CustomWebApplicationFactory
     response.EnsureSuccessStatusCode();
 
     var stringResponse = await response.Content.ReadAsStringAsync();
-    Assert.Equal("", stringResponse);
+    Assert.Equal(string.Empty, stringResponse);
   }
 }

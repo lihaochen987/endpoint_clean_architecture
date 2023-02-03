@@ -1,27 +1,28 @@
-﻿using Clean.Architecture.Core.Interfaces;
-using Clean.Architecture.Infrastructure;
-using Clean.Architecture.Infrastructure.Data;
-using Clean.Architecture.UnitTests;
-using Clean.Architecture.Web;
-using MediatR;
+﻿namespace Clean.Architecture.FunctionalTests;
+
+using Infrastructure.Data;
+using Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Clean.Architecture.FunctionalTests;
-
-public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
+/// <summary>
+/// TODO.
+/// </summary>
+/// <typeparam name="TStartup">TODO LATER.</typeparam>
+public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup>
+  where TStartup : class
 {
   /// <summary>
   /// Overriding CreateHost to avoid creating a separate ServiceProvider per this thread:
   /// https://github.com/dotnet-architecture/eShopOnWeb/issues/465
+  /// TODO.
   /// </summary>
-  /// <param name="builder"></param>
-  /// <returns></returns>
+  /// <param name="builder">TODO.</param>
+  /// <returns>TODO LATER.</returns>
   protected override IHost CreateHost(IHostBuilder builder)
   {
     builder.UseEnvironment("Development"); // will not send real emails
@@ -39,7 +40,7 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
       var db = scopedServices.GetRequiredService<AppDbContext>();
 
       var logger = scopedServices
-          .GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
+        .GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
 
       // Ensure the database is created.
       db.Database.EnsureCreated();
@@ -47,45 +48,52 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
       try
       {
         // Can also skip creating the items
-        //if (!db.ToDoItems.Any())
-        //{
+        // if (!db.ToDoItems.Any())
+        // {
         // Seed the database with test data.
         SeedData.PopulateTestData(db);
-        //}
+
+        // }
       }
       catch (Exception ex)
       {
-        logger.LogError(ex, "An error occurred seeding the " +
-                            "database with test messages. Error: {exceptionMessage}", ex.Message);
+        logger.LogError(
+          ex,
+          "An error occurred seeding the " + "database with test messages. Error: {exceptionMessage}",
+          ex.Message);
       }
     }
 
     return host;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="builder">TODO LATER.</param>
   protected override void ConfigureWebHost(IWebHostBuilder builder)
   {
     builder
-        .ConfigureServices(services =>
-        {
-          // Remove the app's ApplicationDbContext registration.
-          var descriptor = services.SingleOrDefault(
+      .ConfigureServices(services =>
+      {
+        // Remove the app's ApplicationDbContext registration.
+        var descriptor = services.SingleOrDefault(
           d => d.ServiceType ==
-              typeof(DbContextOptions<AppDbContext>));
+               typeof(DbContextOptions<AppDbContext>));
 
-          if (descriptor != null)
-          {
-            services.Remove(descriptor);
-          }
+        if (descriptor != null)
+        {
+          services.Remove(descriptor);
+        }
 
-          // This should be set for each individual test run
-          string inMemoryCollectionName = Guid.NewGuid().ToString();
+        // This should be set for each individual test run
+        string inMemoryCollectionName = Guid.NewGuid().ToString();
 
-          // Add ApplicationDbContext using an in-memory database for testing.
-          services.AddDbContext<AppDbContext>(options =>
-          {
-            options.UseInMemoryDatabase(inMemoryCollectionName);
-          });
+        // Add ApplicationDbContext using an in-memory database for testing.
+        services.AddDbContext<AppDbContext>(options =>
+        {
+          options.UseInMemoryDatabase(inMemoryCollectionName);
         });
+      });
   }
 }

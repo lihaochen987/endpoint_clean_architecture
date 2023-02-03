@@ -1,11 +1,18 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.IntegrationTests.Data;
+
+using Core.ProjectAggregate;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
-namespace Clean.Architecture.IntegrationTests.Data;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class EfRepositoryUpdate : BaseEfRepoTestFixture
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task UpdatesItemAfterAddingIt()
   {
@@ -21,12 +28,13 @@ public class EfRepositoryUpdate : BaseEfRepoTestFixture
 
     // fetch the item and update its title
     var newProject = (await repository.ListAsync())
-        .FirstOrDefault(project => project.Name == initialName);
+      .FirstOrDefault(project => project.Name == initialName);
     if (newProject == null)
     {
       Assert.NotNull(newProject);
       return;
     }
+
     Assert.NotSame(project, newProject);
     var newName = Guid.NewGuid().ToString();
     newProject.UpdateName(newName);
@@ -36,7 +44,7 @@ public class EfRepositoryUpdate : BaseEfRepoTestFixture
 
     // Fetch the updated item
     var updatedItem = (await repository.ListAsync())
-        .FirstOrDefault(project => project.Name == newName);
+      .FirstOrDefault(project => project.Name == newName);
 
     Assert.NotNull(updatedItem);
     Assert.NotEqual(project.Name, updatedItem?.Name);

@@ -1,20 +1,31 @@
-﻿using Ardalis.HttpClientTestExtensions;
-using Clean.Architecture.Web;
-using Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.FunctionalTests.ApiEndpoints;
+
+using Ardalis.HttpClientTestExtensions;
+using Web;
+using Web.Endpoints.ProjectEndpoints;
 using Xunit;
 
-namespace Clean.Architecture.FunctionalTests.ApiEndpoints;
-
+/// <summary>
+/// TODO.
+/// </summary>
 [Collection("Sequential")]
 public class ProjectGetById : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ProjectGetById"/> class.
+  /// </summary>
+  /// <param name="factory">TODO LATER.</param>
   public ProjectGetById(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task ReturnsSeedProjectGivenId1()
   {
@@ -25,6 +36,10 @@ public class ProjectGetById : IClassFixture<CustomWebApplicationFactory<WebMarke
     Assert.Equal(3, result.Items.Count);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task ReturnsNotFoundGivenId0()
   {

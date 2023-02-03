@@ -1,7 +1,12 @@
-﻿
-namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
 
+/// <summary>
+/// TODO.
+/// </summary>
 public class ProjectListResponse
 {
-  public List<ProjectRecord> Projects { get; set; } = new();
+  /// <summary>
+  /// Gets or sets tODO.
+  /// </summary>
+  public List<ProjectRecord> Projects { get; set; } = new ();
 }

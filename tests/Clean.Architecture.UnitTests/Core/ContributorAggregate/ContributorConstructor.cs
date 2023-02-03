@@ -21,20 +21,20 @@ public class ContributorConstructor
   /// <summary>
   /// TODO.
   /// </summary>
-  /// <returns>TODO LATER.</returns>
-  private Contributor CreateContributor()
-  {
-    return new Contributor(testName);
-  }
-
-  /// <summary>
-  /// TODO.
-  /// </summary>
   [Fact]
   public void InitializesName()
   {
     testContributor = CreateContributor();
 
     Assert.Equal(testName, testContributor.Name);
+  }
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>TODO LATER.</returns>
+  private Contributor CreateContributor()
+  {
+    return new Contributor(testName);
   }
 }

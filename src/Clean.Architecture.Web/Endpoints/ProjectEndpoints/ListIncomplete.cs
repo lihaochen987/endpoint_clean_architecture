@@ -1,21 +1,34 @@
-﻿using Ardalis.ApiEndpoints;
-using Clean.Architecture.Core.Interfaces;
+﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+
+using Ardalis.ApiEndpoints;
+using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class ListIncomplete : EndpointBaseAsync
   .WithRequest<ListIncompleteRequest>
   .WithActionResult<ListIncompleteResponse>
 {
   private readonly IToDoItemSearchService _searchService;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ListIncomplete"/> class.
+  /// </summary>
+  /// <param name="searchService">TODO LATER2.</param>
   public ListIncomplete(IToDoItemSearchService searchService)
   {
     _searchService = searchService;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="request">TODO LATER2.</param>
+  /// <param name="cancellationToken">TODO LATER3.</param>
+  /// <returns>TODO LATER4.</returns>
   [HttpGet("/Projects/{ProjectId}/IncompleteItems")]
   [SwaggerOperation(
     Summary = "Gets a list of a project's incomplete items",
@@ -25,7 +38,7 @@ public class ListIncomplete : EndpointBaseAsync
   ]
   public override async Task<ActionResult<ListIncompleteResponse>> HandleAsync(
     [FromQuery] ListIncompleteRequest request,
-    CancellationToken cancellationToken = new())
+    CancellationToken cancellationToken = new ())
   {
     if (request.SearchString == null)
     {
@@ -40,10 +53,11 @@ public class ListIncomplete : EndpointBaseAsync
       response.ProjectId = request.ProjectId;
       response.IncompleteItems = new List<ToDoItemRecord>(
         result.Value.Select(
-          item => new ToDoItemRecord(item.Id,
-            item.Title,
-            item.Description,
-            item.IsDone)));
+          item => new ToDoItemRecord(
+              item.Id,
+              item.Title,
+              item.Description,
+              item.IsDone)));
     }
     else if (result.Status == Ardalis.Result.ResultStatus.Invalid)
     {

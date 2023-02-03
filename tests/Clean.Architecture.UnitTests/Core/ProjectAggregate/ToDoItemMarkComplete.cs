@@ -1,23 +1,32 @@
-﻿using Clean.Architecture.Core.ProjectAggregate.Events;
+﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
+
+using Clean.Architecture.Core.ProjectAggregate.Events;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class ToDoItemMarkComplete
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void SetsIsDoneToTrue()
   {
     var item = new ToDoItemBuilder()
-        .WithDefaultValues()
-        .Description("")
-        .Build();
+      .WithDefaultValues()
+      .Description(string.Empty)
+      .Build();
 
     item.MarkComplete();
 
     Assert.True(item.IsDone);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void RaisesToDoItemCompletedEvent()
   {

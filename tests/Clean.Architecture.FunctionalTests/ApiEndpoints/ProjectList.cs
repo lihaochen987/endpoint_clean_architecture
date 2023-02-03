@@ -1,20 +1,31 @@
-﻿using Ardalis.HttpClientTestExtensions;
-using Clean.Architecture.Web;
-using Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.FunctionalTests.ApiEndpoints;
+
+using Ardalis.HttpClientTestExtensions;
+using Web;
+using Web.Endpoints.ProjectEndpoints;
 using Xunit;
 
-namespace Clean.Architecture.FunctionalTests.ApiEndpoints;
-
+/// <summary>
+/// TODO.
+/// </summary>
 [Collection("Sequential")]
 public class ProjectList : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ProjectList"/> class.
+  /// </summary>
+  /// <param name="factory">TODO LATER.</param>
   public ProjectList(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task ReturnsOneProject()
   {

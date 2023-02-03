@@ -16,6 +16,7 @@ public class ItemCompletedEmailNotificationHandlerHandle
   /// TODO.
   /// </summary>
   private ItemCompletedEmailNotificationHandler _handler;
+
   /// <summary>
   /// TODO.
   /// </summary>
