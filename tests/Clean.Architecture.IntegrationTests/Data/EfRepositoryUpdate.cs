@@ -24,7 +24,7 @@ public class EfRepositoryUpdate : BaseEfRepoTestFixture
     await repository.AddAsync(project);
 
     // detach the item so we get a different instance
-    _dbContext.Entry(project).State = EntityState.Detached;
+    DbContext.Entry(project).State = EntityState.Detached;
 
     // fetch the item and update its title
     var newProject = (await repository.ListAsync())

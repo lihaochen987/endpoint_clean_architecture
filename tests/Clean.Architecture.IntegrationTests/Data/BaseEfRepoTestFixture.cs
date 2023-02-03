@@ -15,7 +15,7 @@ public abstract class BaseEfRepoTestFixture
   /// <summary>
   /// TODO.
   /// </summary>
-  protected AppDbContext _dbContext;
+  protected readonly AppDbContext DbContext;
 
   /// <summary>
   /// Initializes a new instance of the <see cref="BaseEfRepoTestFixture"/> class.
@@ -25,14 +25,23 @@ public abstract class BaseEfRepoTestFixture
     var options = CreateNewContextOptions();
     var mockEventDispatcher = new Mock<IDomainEventDispatcher>();
 
-    _dbContext = new AppDbContext(options, mockEventDispatcher.Object);
+    DbContext = new AppDbContext(options, mockEventDispatcher.Object);
   }
 
   /// <summary>
   /// TODO.
   /// </summary>
   /// <returns>TODO LATER.</returns>
-  protected static DbContextOptions<AppDbContext> CreateNewContextOptions()
+  protected EfRepository<Project> GetRepository()
+  {
+    return new EfRepository<Project>(DbContext);
+  }
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>TODO LATER.</returns>
+  private static DbContextOptions<AppDbContext> CreateNewContextOptions()
   {
     // Create a fresh service provider, and therefore a fresh
     // InMemory database instance.
@@ -47,14 +56,5 @@ public abstract class BaseEfRepoTestFixture
       .UseInternalServiceProvider(serviceProvider);
 
     return builder.Options;
-  }
-
-  /// <summary>
-  /// TODO.
-  /// </summary>
-  /// <returns>TODO LATER.</returns>
-  protected EfRepository<Project> GetRepository()
-  {
-    return new EfRepository<Project>(_dbContext);
   }
 }
