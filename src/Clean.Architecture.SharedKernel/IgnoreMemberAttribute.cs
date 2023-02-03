@@ -1,6 +1,9 @@
 ﻿namespace Clean.Architecture.SharedKernel;
 
-// source: https://github.com/jhewlett/ValueObject
+/// <summary>
+/// TODO.
+/// source: https://github.com/jhewlett/ValueObject.
+/// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
 public class IgnoreMemberAttribute : Attribute
 {

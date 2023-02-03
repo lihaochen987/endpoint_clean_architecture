@@ -1,27 +1,40 @@
-﻿using Ardalis.Result;
-using Clean.Architecture.Core.Interfaces;
-using Clean.Architecture.Core.ProjectAggregate;
-using Clean.Architecture.Core.ProjectAggregate.Specifications;
+﻿namespace Clean.Architecture.Core.Services;
+
+using Ardalis.Result;
+using Interfaces;
+using ProjectAggregate;
+using ProjectAggregate.Specifications;
 using Clean.Architecture.SharedKernel.Interfaces;
 
-namespace Clean.Architecture.Core.Services;
-
+/// <summary>
+/// The ApplicationService which searches a ToDoItem.
+/// </summary>
 public class ToDoItemSearchService : IToDoItemSearchService
 {
   private readonly IRepository<Project> _repository;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ToDoItemSearchService"/> class.
+  /// </summary>
+  /// <param name="repository">The Project Aggregate object.</param>
   public ToDoItemSearchService(IRepository<Project> repository)
   {
     _repository = repository;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="projectId">TODO LATER.</param>
+  /// <param name="searchString">TODO LATER2.</param>
+  /// <returns>TODO LATER3.</returns>
   public async Task<Result<List<ToDoItem>>> GetAllIncompleteItemsAsync(int projectId, string searchString)
   {
     if (string.IsNullOrEmpty(searchString))
     {
       var errors = new List<ValidationError>
       {
-        new() { Identifier = nameof(searchString), ErrorMessage = $"{nameof(searchString)} is required." }
+        new () { Identifier = nameof(searchString), ErrorMessage = $"{nameof(searchString)} is required." },
       };
 
       return Result<List<ToDoItem>>.Invalid(errors);
@@ -50,6 +63,11 @@ public class ToDoItemSearchService : IToDoItemSearchService
     }
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="projectId">TODO LATER1.</param>
+  /// <returns>TODO LATER2.</returns>
   public async Task<Result<ToDoItem>> GetNextIncompleteItemAsync(int projectId)
   {
     var projectSpec = new ProjectByIdWithItemsSpec(projectId);

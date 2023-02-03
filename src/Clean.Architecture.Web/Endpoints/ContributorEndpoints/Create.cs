@@ -1,18 +1,28 @@
-﻿using Clean.Architecture.Core.ContributorAggregate;
-using Clean.Architecture.SharedKernel.Interfaces;
+﻿namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
+
+using Core.ContributorAggregate;
+using SharedKernel.Interfaces;
 using FastEndpoints;
 
-namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class Create : Endpoint<CreateContributorRequest, CreateContributorResponse>
 {
   private readonly IRepository<Contributor> _repository;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="Create"/> class.
+  /// </summary>
+  /// <param name="repository">TODO LATER.</param>
   public Create(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   public override void Configure()
   {
     Post(CreateContributorRequest.Route);
@@ -20,6 +30,13 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
     Options(x => x
       .WithTags("ContributorEndpoints"));
   }
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="request">TODO LATER.</param>
+  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
     CreateContributorRequest request,
     CancellationToken cancellationToken)
@@ -31,11 +48,9 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
 
     var newContributor = new Contributor(request.Name);
     var createdItem = await _repository.AddAsync(newContributor, cancellationToken);
-    var response = new CreateContributorResponse
-    (
+    var response = new CreateContributorResponse(
       id: createdItem.Id,
-      name: createdItem.Name
-    );
+      name: createdItem.Name);
 
     await SendAsync(response);
   }

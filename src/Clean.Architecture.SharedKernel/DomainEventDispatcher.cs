@@ -1,17 +1,29 @@
-﻿using Clean.Architecture.SharedKernel.Interfaces;
+﻿namespace Clean.Architecture.SharedKernel;
+
+using Interfaces;
 using MediatR;
 
-namespace Clean.Architecture.SharedKernel;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class DomainEventDispatcher : IDomainEventDispatcher
 {
   private readonly IMediator _mediator;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="DomainEventDispatcher"/> class.
+  /// </summary>
+  /// <param name="mediator">TODO LATER.</param>
   public DomainEventDispatcher(IMediator mediator)
   {
     _mediator = mediator;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="entitiesWithEvents">TODO LATER.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public async Task DispatchAndClearEvents(IEnumerable<EntityBase> entitiesWithEvents)
   {
     foreach (var entity in entitiesWithEvents)

@@ -1,12 +1,20 @@
-﻿using Ardalis.Specification;
+﻿namespace Clean.Architecture.Core.ProjectAggregate.Specifications;
 
-namespace Clean.Architecture.Core.ContributorAggregate.Specifications;
+using Ardalis.Specification;
+using ContributorAggregate;
 
+/// <summary>
+/// TODO.
+/// </summary>
 public class ContributorByIdSpec : Specification<Contributor>, ISingleResultSpecification
 {
+  /// <summary>
+  /// Initializes a new instance of the <see cref="ContributorByIdSpec"/> class.
+  /// </summary>
+  /// <param name="contributorId">TODO.</param>
   public ContributorByIdSpec(int contributorId)
   {
     Query
-        .Where(contributor => contributor.Id == contributorId);
+      .Where(contributor => contributor.Id == contributorId);
   }
 }

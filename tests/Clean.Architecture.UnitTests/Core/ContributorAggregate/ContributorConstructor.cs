@@ -1,23 +1,40 @@
-﻿using Clean.Architecture.Core.ContributorAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.ContributorAggregate;
+
+using Clean.Architecture.Core.ContributorAggregate;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.ContributorAggregate;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class ContributorConstructor
 {
-  private readonly string _testName = "test name";
-  private Contributor? _testContributor;
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  private readonly string testName = "test name";
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  private Contributor? testContributor;
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>TODO LATER.</returns>
   private Contributor CreateContributor()
   {
-    return new Contributor(_testName);
+    return new Contributor(testName);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void InitializesName()
   {
-    _testContributor = CreateContributor();
+    testContributor = CreateContributor();
 
-    Assert.Equal(_testName, _testContributor.Name);
+    Assert.Equal(testName, testContributor.Name);
   }
 }

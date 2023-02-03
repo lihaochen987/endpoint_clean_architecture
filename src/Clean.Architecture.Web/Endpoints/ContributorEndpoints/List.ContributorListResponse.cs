@@ -1,6 +1,12 @@
 namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
 
+/// <summary>
+/// TODO.
+/// </summary>
 public class ContributorListResponse
 {
-  public List<ContributorRecord> Contributors { get; set; } = new();
+  /// <summary>
+  /// Gets or sets tODO.
+  /// </summary>
+  public List<ContributorRecord> Contributors { get; set; } = new ();
 }

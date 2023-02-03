@@ -1,31 +1,39 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
+
+using Clean.Architecture.Core.ProjectAggregate;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class Project_AddItem
 {
-  private Project _testProject = new Project("some name", PriorityStatus.Backlog);
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  private Project testProject = new Project("some name", PriorityStatus.Backlog);
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void AddsItemToItems()
   {
-    var _testItem = new ToDoItem
-    {
-      Title = "title",
-      Description = "description"
-    };
+    var testItem = new ToDoItem { Title = "title", Description = "description" };
 
-    _testProject.AddItem(_testItem);
+    testProject.AddItem(testItem);
 
-    Assert.Contains(_testItem, _testProject.Items);
+    Assert.Contains(testItem, testProject.Items);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void ThrowsExceptionGivenNullItem()
   {
 #nullable disable
-    Action action = () => _testProject.AddItem(null);
+    Action action = () => testProject.AddItem(null);
 #nullable enable
 
     var ex = Assert.Throws<ArgumentNullException>(action);

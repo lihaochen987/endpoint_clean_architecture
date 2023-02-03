@@ -1,21 +1,29 @@
-﻿using System.Reflection;
+﻿namespace Clean.Architecture.Infrastructure;
+
+using System.Reflection;
 using Autofac;
-using Clean.Architecture.Core.Interfaces;
-using Clean.Architecture.Core.ProjectAggregate;
-using Clean.Architecture.Infrastructure.Data;
-using Clean.Architecture.SharedKernel;
-using Clean.Architecture.SharedKernel.Interfaces;
+using Core.Interfaces;
+using Core.ProjectAggregate;
+using Data;
+using SharedKernel;
+using SharedKernel.Interfaces;
 using MediatR;
 using MediatR.Pipeline;
 using Module = Autofac.Module;
 
-namespace Clean.Architecture.Infrastructure;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class DefaultInfrastructureModule : Module
 {
   private readonly bool _isDevelopment = false;
   private readonly List<Assembly> _assemblies = new List<Assembly>();
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="DefaultInfrastructureModule"/> class.
+  /// </summary>
+  /// <param name="isDevelopment">TODO LATER.</param>
+  /// <param name="callingAssembly">TODO LATER2.</param>
   public DefaultInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
   {
     _isDevelopment = isDevelopment;
@@ -38,6 +46,10 @@ public class DefaultInfrastructureModule : Module
     }
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="builder">TODO LATER.</param>
   protected override void Load(ContainerBuilder builder)
   {
     if (_isDevelopment)
@@ -78,9 +90,7 @@ public class DefaultInfrastructureModule : Module
 
     var mediatrOpenTypes = new[]
     {
-      typeof(IRequestHandler<,>), 
-      typeof(IRequestExceptionHandler<,,>), 
-      typeof(IRequestExceptionAction<,>),
+      typeof(IRequestHandler<,>), typeof(IRequestExceptionHandler<,,>), typeof(IRequestExceptionAction<,>),
       typeof(INotificationHandler<>),
     };
 

@@ -1,19 +1,29 @@
-﻿using Clean.Architecture.Core.ContributorAggregate;
-using Clean.Architecture.Core.ContributorAggregate.Specifications;
-using Clean.Architecture.SharedKernel.Interfaces;
+﻿namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
+
+using Core.ContributorAggregate;
+using Core.ProjectAggregate.Specifications;
+using SharedKernel.Interfaces;
 using FastEndpoints;
 
-namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
 {
   private readonly IRepository<Contributor> _repository;
 
+  /// <summary>
+  /// Initializes a new instance of the <see cref="GetById"/> class.
+  /// </summary>
+  /// <param name="repository">TODO LATER.</param>
   public GetById(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
   public override void Configure()
   {
     Get(GetContributorByIdRequest.Route);
@@ -21,8 +31,16 @@ public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
     Options(x => x
       .WithTags("ContributorEndpoints"));
   }
-  public override async Task HandleAsync(GetContributorByIdRequest request, 
-    CancellationToken cancellationToken)
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="request">TODO LATER.</param>
+  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+  public override async Task HandleAsync(
+      GetContributorByIdRequest request,
+      CancellationToken cancellationToken)
   {
     var spec = new ContributorByIdSpec(request.ContributorId);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);

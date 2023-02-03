@@ -1,14 +1,18 @@
-﻿using System.Diagnostics;
+﻿namespace Clean.Architecture.Web.Api;
+
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Clean.Architecture.Web.Api;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class MetaController : BaseApiController
 {
   /// <summary>
   /// A sample API Controller. Consider using API Endpoints (see Endpoints folder) for a more SOLID approach to building APIs
-  /// https://github.com/ardalis/ApiEndpoints
+  /// https://github.com/ardalis/ApiEndpoints.
   /// </summary>
+  /// <returns>TODO.</returns>
   [HttpGet("/info")]
   public ActionResult<string> Info()
   {
