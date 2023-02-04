@@ -106,7 +106,7 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 
 ## Handlers?
 
-- TBD
+- Services are Mapped to handlers
 
 ## Builder pattern for tests
 
@@ -114,5 +114,9 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 - https://ardalis.com/improve-tests-with-the-builder-pattern-for-test-data/
 
 ## Aggregates and Entity Base
+
+- TBD
+
+## Testing?
 
 - TBD
