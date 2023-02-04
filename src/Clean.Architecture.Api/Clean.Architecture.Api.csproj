@@ -8,6 +8,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Clean.Architecture.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
