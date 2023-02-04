@@ -1,5 +1,6 @@
 ﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
 
+using Builders;
 using Clean.Architecture.Core.ProjectAggregate.Events;
 using Xunit;
 

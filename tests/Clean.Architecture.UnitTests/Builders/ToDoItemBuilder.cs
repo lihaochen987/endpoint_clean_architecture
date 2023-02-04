@@ -1,4 +1,4 @@
-﻿namespace Clean.Architecture.UnitTests;
+﻿namespace Clean.Architecture.UnitTests.Builders;
 
 using Clean.Architecture.Core.ProjectAggregate;
 
