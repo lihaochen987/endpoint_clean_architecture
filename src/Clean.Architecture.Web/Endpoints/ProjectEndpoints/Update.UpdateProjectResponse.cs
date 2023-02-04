@@ -17,5 +17,5 @@ public class UpdateProjectResponse
   /// <summary>
   /// Gets or sets tODO.
   /// </summary>
-  public ProjectRecord Project { get; set; }
+  private ProjectRecord Project { get; set; }
 }

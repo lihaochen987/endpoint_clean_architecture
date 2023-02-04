@@ -17,5 +17,5 @@ public class UpdateContributorResponse
   /// <summary>
   /// Gets or sets tODO.
   /// </summary>
-  public ContributorRecord Contributor { get; set; }
+  private ContributorRecord Contributor { get; set; }
 }

@@ -19,10 +19,10 @@ public class CreateProjectResponse
   /// <summary>
   /// Gets or sets tODO.
   /// </summary>
-  public int Id { get; set; }
+  private int Id { get; set; }
 
   /// <summary>
   /// Gets or sets tODO.
   /// </summary>
-  public string Name { get; set; }
+  private string Name { get; set; }
 }

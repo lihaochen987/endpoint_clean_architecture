@@ -10,25 +10,25 @@ using Core.ProjectAggregate;
 public class ToDoItemDTO
 {
   /// <summary>
-  /// Gets or sets Id of the to-do item DTO.
-  /// </summary>
-  public int Id { get; set; }
-
-  /// <summary>
-  /// Gets or sets the Title of the to-do item DTO.
+  /// Gets the Title of the to-do item DTO.
   /// </summary>
   [Required]
-  public string? Title { get; set; }
+  public string? Title { get; private init; }
 
   /// <summary>
-  /// Gets or sets the description of the to-do item DTO.
+  /// Gets the description of the to-do item DTO.
   /// </summary>
-  public string? Description { get; set; }
+  public string? Description { get; private init; }
 
   /// <summary>
   /// Gets a value indicating whether the to-do item DTO is done.
   /// </summary>
-  public bool IsDone { get; private set; }
+  public bool IsDone { get; private init; }
+
+  /// <summary>
+  /// Gets id of the to-do item DTO.
+  /// </summary>
+  private int Id { get; init; }
 
   /// <summary>
   /// TODO.

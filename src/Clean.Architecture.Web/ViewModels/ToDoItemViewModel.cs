@@ -8,24 +8,24 @@ using Core.ProjectAggregate;
 public class ToDoItemViewModel
 {
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets tODO.
   /// </summary>
-  public int Id { get; set; }
+  public string? Title { get; private init; }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets tODO.
   /// </summary>
-  public string? Title { get; set; }
+  public string? Description { get; private init; }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets tODO.
   /// </summary>
-  public string? Description { get; set; }
+  private int Id { get; init; }
 
   /// <summary>
   /// Gets a value indicating whether tODO.
   /// </summary>
-  public bool IsDone { get; private set; }
+  private bool IsDone { get; init; }
 
   /// <summary>
   /// TODO.

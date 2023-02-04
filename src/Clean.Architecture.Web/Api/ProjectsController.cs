@@ -60,7 +60,7 @@ public class ProjectsController : BaseApiController
       id: project.Id,
       name: project.Name,
       items: new List<ToDoItemDTO>(
-        project.Items.Select(i => ToDoItemDTO.FromToDoItem(i)).ToList()));
+        project.Items.Select(ToDoItemDTO.FromToDoItem).ToList()));
 
     return Ok(result);
   }

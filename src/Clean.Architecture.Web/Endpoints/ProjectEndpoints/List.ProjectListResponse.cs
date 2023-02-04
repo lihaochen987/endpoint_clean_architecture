@@ -6,7 +6,7 @@
 public class ProjectListResponse
 {
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets tODO.
   /// </summary>
-  public List<ProjectRecord> Projects { get; set; } = new ();
+  public List<ProjectRecord> Projects { get; init; } = new ();
 }

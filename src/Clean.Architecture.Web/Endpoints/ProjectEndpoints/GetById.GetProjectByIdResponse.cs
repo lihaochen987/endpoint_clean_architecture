@@ -31,5 +31,5 @@ public class GetProjectByIdResponse
   /// <summary>
   /// Gets or sets tODO.
   /// </summary>
-  public List<ToDoItemRecord> Items { get; set; } = new ();
+  public List<ToDoItemRecord> Items { get; set; }
 }

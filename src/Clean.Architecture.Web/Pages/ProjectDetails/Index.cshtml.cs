@@ -61,7 +61,7 @@ public class IndexModel : PageModel
       id: project.Id,
       name: project.Name,
       items: project.Items
-        .Select(item => ToDoItemDTO.FromToDoItem(item))
+        .Select(ToDoItemDTO.FromToDoItem)
         .ToList());
   }
 }

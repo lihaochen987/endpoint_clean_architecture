@@ -49,7 +49,7 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
     var existingContributor = await _repository.GetByIdAsync(request.Id, cancellationToken);
     if (existingContributor == null)
     {
-      await SendNotFoundAsync();
+      await SendNotFoundAsync(cancellationToken);
       return;
     }
 
@@ -60,6 +60,6 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
     var response = new UpdateContributorResponse(
       contributor: new ContributorRecord(existingContributor.Id, existingContributor.Name));
 
-    await SendAsync(response);
+    await SendAsync(response, cancellation: cancellationToken);
   }
 }

@@ -52,6 +52,6 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
       id: createdItem.Id,
       name: createdItem.Name);
 
-    await SendAsync(response);
+    await SendAsync(response, cancellation: cancellationToken);
   }
 }
