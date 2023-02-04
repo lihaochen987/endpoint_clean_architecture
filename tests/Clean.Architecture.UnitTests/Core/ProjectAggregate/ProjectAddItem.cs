@@ -19,10 +19,13 @@ public class ProjectAddItem
   [Fact]
   public void AddsItemToItems()
   {
+    // Arrange
     var testItem = new ToDoItem("title", "description");
 
+    // Act
     _testProject.AddItem(testItem);
 
+    // Assert
     Assert.Contains(testItem, _testProject.Items);
   }
 
@@ -32,11 +35,13 @@ public class ProjectAddItem
   [Fact]
   public void ThrowsExceptionGivenNullItem()
   {
+    // Act
     void Action()
     {
       _testProject.AddItem(null!);
     }
 
+    // Assert
     var ex = Assert.Throws<ArgumentNullException>(Action);
     Assert.Equal("newItem", ex.ParamName);
   }

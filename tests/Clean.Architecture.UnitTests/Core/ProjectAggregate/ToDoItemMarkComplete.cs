@@ -14,13 +14,16 @@ public class ToDoItemMarkComplete
   [Fact]
   public void SetsIsDoneToTrue()
   {
+    // Arrange
     var item = new ToDoItemBuilder()
       .WithDefaultValues()
       .Description(string.Empty)
       .Build();
 
+    // Act
     item.MarkComplete();
 
+    // Assert
     Assert.True(item.IsDone);
   }
 
@@ -30,10 +33,13 @@ public class ToDoItemMarkComplete
   [Fact]
   public void RaisesToDoItemCompletedEvent()
   {
+    // Arrange
     var item = new ToDoItemBuilder().Build();
 
+    // Act
     item.MarkComplete();
 
+    // Assert
     Assert.Single(item.DomainEvents);
     Assert.IsType<ToDoItemCompletedEvent>(item.DomainEvents.First());
   }

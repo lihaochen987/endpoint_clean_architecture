@@ -1,23 +1,20 @@
 ﻿namespace Clean.Architecture.SharedKernel;
 
 /// <summary>
-/// TODO.
+/// The base class for a Value object - used in different bounded contexts in an actual project.
 /// See: https://enterprisecraftsmanship.com/posts/value-object-better-implementation/.
 /// </summary>
 [Serializable]
 public abstract class ValueObject : IComparable, IComparable<ValueObject>
 {
-  /// <summary>
-  /// TODO.
-  /// </summary>
   private int? _cachedHashCode;
 
   /// <summary>
-  /// TODO.
+  /// Checks for equality between two value objects.
   /// </summary>
-  /// <param name="a">TODO LATER2.</param>
-  /// <param name="b">TODO LATER3.</param>
-  /// <returns>TODO LATER4.</returns>
+  /// <param name="a">The first value object.</param>
+  /// <param name="b">The second value object.</param>
+  /// <returns>Whether the value objects are equal.</returns>
   public static bool operator ==(ValueObject? a, ValueObject? b)
   {
     if (a is null && b is null)
@@ -34,11 +31,11 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
   }
 
   /// <summary>
-  /// TODO.
+  /// Checks for inequality between two value objects.
   /// </summary>
-  /// <param name="a">TODO LATER.</param>
-  /// <param name="b">TODO LATER2.</param>
-  /// <returns>TODO LATER3.</returns>
+  /// <param name="a">The first value object.</param>
+  /// <param name="b">The second value object.</param>
+  /// <returns>Whether the value objects are equal.</returns>
   public static bool operator !=(ValueObject a, ValueObject b)
   {
     return !(a == b);

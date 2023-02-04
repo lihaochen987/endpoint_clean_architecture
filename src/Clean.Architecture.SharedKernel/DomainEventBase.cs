@@ -3,7 +3,7 @@
 using MediatR;
 
 /// <summary>
-/// An event that relates to the business requirements of our domain.
+/// The base class for a Domain Event - used in different bounded contexts in an actual project.
 /// </summary>
 public abstract class DomainEventBase : INotification
 {

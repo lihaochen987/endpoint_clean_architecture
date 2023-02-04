@@ -4,7 +4,7 @@ using Interfaces;
 using MediatR;
 
 /// <summary>
-/// TODO.
+/// The class that dispatches the Domain Events for our entity objects.
 /// </summary>
 public class DomainEventDispatcher : IDomainEventDispatcher
 {
