@@ -1,5 +1,4 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
-
+﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>

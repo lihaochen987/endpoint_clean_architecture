@@ -1,4 +1,4 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 using Ardalis.ApiEndpoints;
 using Core.Interfaces;

@@ -1,4 +1,4 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 using System.ComponentModel.DataAnnotations;
 

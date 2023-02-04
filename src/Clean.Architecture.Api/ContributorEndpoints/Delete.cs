@@ -1,8 +1,8 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
+﻿namespace Clean.Architecture.Web.ContributorEndpoints;
 
-using FastEndpoints;
 using Ardalis.Result;
 using Core.Interfaces;
+using FastEndpoints;
 
 /// <summary>
 /// TODO.

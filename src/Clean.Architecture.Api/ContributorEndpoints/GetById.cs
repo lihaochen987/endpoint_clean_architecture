@@ -3,7 +3,6 @@
 using Core.ContributorAggregate;
 using Core.ProjectAggregate.Specifications;
 using SharedKernel.Interfaces;
-using Clean.Architecture.Web.Endpoints.ContributorEndpoints;
 using FastEndpoints;
 
 /// <summary>

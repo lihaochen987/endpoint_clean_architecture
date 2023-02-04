@@ -1,4 +1,5 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ProjectEndpoints;
+﻿namespace Clean.Architecture.Web.ProjectEndpoints;
+
 using Ardalis.ApiEndpoints;
 using Core.ProjectAggregate;
 using SharedKernel.Interfaces;
@@ -8,9 +9,7 @@ using Swashbuckle.AspNetCore.Annotations;
 /// <summary>
 /// TODO.
 /// </summary>
-public class Create : EndpointBaseAsync
-  .WithRequest<CreateProjectRequest>
-  .WithActionResult<CreateProjectResponse>
+public class Create : EndpointBaseAsync.WithRequest<CreateProjectRequest>.WithActionResult<CreateProjectResponse>
 {
   private readonly IRepository<Project> _repository;
 
