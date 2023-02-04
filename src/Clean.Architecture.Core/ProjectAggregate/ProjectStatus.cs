@@ -1,17 +1,17 @@
 ﻿namespace Clean.Architecture.Core.ProjectAggregate;
 
 /// <summary>
-/// TODO.
+/// Lists the Status of the projects.
 /// </summary>
 public enum ProjectStatus
 {
   /// <summary>
-  /// TODO.
+  /// The project is currently in progress.
   /// </summary>
   InProgress,
 
   /// <summary>
-  /// TODO.
+  /// The project is complete.
   /// </summary>
   Complete,
 }

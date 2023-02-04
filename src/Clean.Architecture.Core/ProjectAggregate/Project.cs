@@ -6,7 +6,7 @@ using SharedKernel;
 using Clean.Architecture.SharedKernel.Interfaces;
 
 /// <summary>
-/// TODO.
+/// The Project Domain Model Object.
 /// </summary>
 public class Project : EntityBase, IAggregateRoot
 {
@@ -18,8 +18,8 @@ public class Project : EntityBase, IAggregateRoot
   /// <summary>
   /// Initializes a new instance of the <see cref="Project"/> class.
   /// </summary>
-  /// <param name="name">TODO.</param>
-  /// <param name="priority">TODO later.</param>
+  /// <param name="name">The name of the project.</param>
+  /// <param name="priority">The priority status of the project.</param>
   public Project(string name, PriorityStatus priority)
   {
     Name = Guard.Against.NullOrEmpty(name, nameof(name));
@@ -47,9 +47,9 @@ public class Project : EntityBase, IAggregateRoot
   public PriorityStatus Priority { get; }
 
   /// <summary>
-  /// TODO.
+  /// Adds a to-do item to the project.
   /// </summary>
-  /// <param name="newItem">TODO later.</param>
+  /// <param name="newItem">The to-do item added to the project.</param>
   public void AddItem(ToDoItem newItem)
   {
     Guard.Against.Null(newItem, nameof(newItem));
@@ -60,9 +60,9 @@ public class Project : EntityBase, IAggregateRoot
   }
 
   /// <summary>
-  /// TODO.
+  /// Updates the name of the existing project.
   /// </summary>
-  /// <param name="newName">TODO later.</param>
+  /// <param name="newName">The new name of the project.</param>
   public void UpdateName(string newName)
   {
     Name = Guard.Against.NullOrEmpty(newName, nameof(newName));

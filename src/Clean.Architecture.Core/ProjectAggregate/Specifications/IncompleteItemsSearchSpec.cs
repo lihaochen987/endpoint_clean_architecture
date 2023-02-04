@@ -3,14 +3,14 @@
 using Ardalis.Specification;
 
 /// <summary>
-/// TODO.
+/// The database query specification which gets a searches Incomplete items.
 /// </summary>
-public class IncompleteItemsSearchSpec : Specification<ToDoItem>
+public sealed class IncompleteItemsSearchSpec : Specification<ToDoItem>
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="IncompleteItemsSearchSpec"/> class.
   /// </summary>
-  /// <param name="searchString">TODO.</param>
+  /// <param name="searchString">The search string to find the Incomplete items.</param>
   public IncompleteItemsSearchSpec(string searchString)
   {
     Query

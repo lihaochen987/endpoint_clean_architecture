@@ -5,7 +5,7 @@ using SharedKernel.Interfaces;
 using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Contributor Update endpoint.
 /// </summary>
 public class Update : Endpoint<UpdateContributorRequest, UpdateContributorResponse>
 {
@@ -14,14 +14,14 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
   /// <summary>
   /// Initializes a new instance of the <see cref="Update"/> class.
   /// </summary>
-  /// <param name="repository">TODO LATER.</param>
+  /// <param name="repository">The Contributor repository.</param>
   public Update(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
   public override void Configure()
   {
@@ -32,10 +32,10 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <param name="request">The Contributor Request Update contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
     UpdateContributorRequest request,

@@ -5,7 +5,7 @@ using SharedKernel.Interfaces;
 using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Contributor List endpoint.
 /// </summary>
 public class List : EndpointWithoutRequest<ContributorListResponse>
 {
@@ -14,14 +14,14 @@ public class List : EndpointWithoutRequest<ContributorListResponse>
   /// <summary>
   /// Initializes a new instance of the <see cref="List"/> class.
   /// </summary>
-  /// <param name="repository">TODO LATER.</param>
+  /// <param name="repository">The Contributor repository.</param>
   public List(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
   public override void Configure()
   {
@@ -32,9 +32,9 @@ public class List : EndpointWithoutRequest<ContributorListResponse>
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
   /// </summary>
-  /// <param name="cancellationToken">TODO LATER.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(CancellationToken cancellationToken)
   {

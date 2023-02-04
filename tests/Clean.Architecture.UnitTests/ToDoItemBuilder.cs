@@ -3,19 +3,17 @@
 using Clean.Architecture.Core.ProjectAggregate;
 
 /// <summary>
-/// TODO.
-/// Learn more about test builders:
-/// https://ardalis.com/improve-tests-with-the-builder-pattern-for-test-data.
+/// The builder responsible for instantiating a to-do item object.
 /// </summary>
 public class ToDoItemBuilder
 {
   private ToDoItem _todo = new ToDoItem();
 
   /// <summary>
-  /// TODO.
+  /// Instantiates a to-do item object.
   /// </summary>
-  /// <param name="id">TODO LATER.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="id">The Id of the to-do item object.</param>
+  /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder Id(int id)
   {
     _todo.Id = id;
@@ -23,10 +21,10 @@ public class ToDoItemBuilder
   }
 
   /// <summary>
-  /// TODO.
+  /// Sets the title of the to-do item object.
   /// </summary>
-  /// <param name="title">TODO LATER1.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="title">The Title of the to-do item object.</param>
+  /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder Title(string title)
   {
     _todo.Title = title;
@@ -34,10 +32,10 @@ public class ToDoItemBuilder
   }
 
   /// <summary>
-  /// TODO.
+  /// Sets the description of the to-do item object.
   /// </summary>
-  /// <param name="description">TODO LATER1.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="description">The Description of the to-do item object.</param>
+  /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder Description(string description)
   {
     _todo.Description = description;
@@ -45,9 +43,9 @@ public class ToDoItemBuilder
   }
 
   /// <summary>
-  /// TODO.
+  /// Sets the default values of the to-do item object.
   /// </summary>
-  /// <returns>TODO LATER1.</returns>
+  /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder WithDefaultValues()
   {
     _todo = new ToDoItem() { Id = 1, Title = "Test Item", Description = "Test Description" };
@@ -56,8 +54,8 @@ public class ToDoItemBuilder
   }
 
   /// <summary>
-  /// TODO.
+  /// Builds the to-do item object.
   /// </summary>
-  /// <returns>TODO LATER1.</returns>
+  /// <returns>The to-do item object.</returns>
   public ToDoItem Build() => _todo;
 }

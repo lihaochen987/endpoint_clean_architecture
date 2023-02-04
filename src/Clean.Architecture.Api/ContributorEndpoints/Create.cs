@@ -5,7 +5,7 @@ using SharedKernel.Interfaces;
 using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Contributor Create endpoint.
 /// </summary>
 public class Create : Endpoint<CreateContributorRequest, CreateContributorResponse>
 {
@@ -14,14 +14,14 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
   /// <summary>
   /// Initializes a new instance of the <see cref="Create"/> class.
   /// </summary>
-  /// <param name="repository">TODO LATER.</param>
+  /// <param name="repository">The Contributor repository.</param>
   public Create(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
   public override void Configure()
   {
@@ -32,10 +32,10 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <param name="request">The Contributor Request Create contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
     CreateContributorRequest request,
@@ -46,8 +46,13 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
       ThrowError("Name is required");
     }
 
+    // Create Domain Model object from request contract.
     var newContributor = new Contributor(request.Name);
+
+    // Add Domain Model object to the database.
     var createdItem = await _repository.AddAsync(newContributor, cancellationToken);
+
+    // Return a domain model response contract.
     var response = new CreateContributorResponse(
       id: createdItem.Id,
       name: createdItem.Name);

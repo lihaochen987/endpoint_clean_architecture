@@ -6,7 +6,7 @@ using SharedKernel.Interfaces;
 using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Contributor GetById endpoint.
 /// </summary>
 public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
 {
@@ -15,14 +15,14 @@ public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
   /// <summary>
   /// Initializes a new instance of the <see cref="GetById"/> class.
   /// </summary>
-  /// <param name="repository">TODO LATER.</param>
+  /// <param name="repository">The Contributor Repository.</param>
   public GetById(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
   public override void Configure()
   {
@@ -33,10 +33,10 @@ public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <param name="request">The Contributor Request GetById contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
     GetContributorByIdRequest request,

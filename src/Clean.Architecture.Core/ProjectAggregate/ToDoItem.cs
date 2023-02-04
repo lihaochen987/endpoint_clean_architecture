@@ -5,7 +5,7 @@ using Events;
 using SharedKernel;
 
 /// <summary>
-/// TODO.
+/// The ToDoItem entity class.
 /// </summary>
 public class ToDoItem : EntityBase
 {
@@ -30,7 +30,7 @@ public class ToDoItem : EntityBase
   public bool IsDone { get; private set; }
 
   /// <summary>
-  /// TODO.
+  /// Marks the status of the ToDoItem as complete.
   /// </summary>
   public void MarkComplete()
   {
@@ -43,9 +43,9 @@ public class ToDoItem : EntityBase
   }
 
   /// <summary>
-  /// TODO.
+  /// Adds a Contributor to the to-do item.
   /// </summary>
-  /// <param name="contributorId">TODO later.</param>
+  /// <param name="contributorId">The Id of the Contributor.</param>
   public void AddContributor(int contributorId)
   {
     Guard.Against.Null(contributorId, nameof(contributorId));
@@ -56,7 +56,7 @@ public class ToDoItem : EntityBase
   }
 
   /// <summary>
-  /// TODO.
+  /// Removes a Contributor from the ToDoItem.
   /// </summary>
   public void RemoveContributor()
   {
@@ -64,9 +64,9 @@ public class ToDoItem : EntityBase
   }
 
   /// <summary>
-  /// TODO.
+  /// Returns the string message of the ToDoItem.
   /// </summary>
-  /// <returns>TODO later.</returns>
+  /// <returns>The string message.</returns>
   public override string ToString()
   {
     string status = IsDone ? "Done!" : "Not done.";

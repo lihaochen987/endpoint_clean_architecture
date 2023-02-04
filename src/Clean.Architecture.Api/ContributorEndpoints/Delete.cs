@@ -5,7 +5,7 @@ using Core.Interfaces;
 using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Contributor Delete endpoint.
 /// </summary>
 public class Delete : Endpoint<DeleteContributorRequest>
 {
@@ -14,14 +14,14 @@ public class Delete : Endpoint<DeleteContributorRequest>
   /// <summary>
   /// Initializes a new instance of the <see cref="Delete"/> class.
   /// </summary>
-  /// <param name="service">TODO LATER.</param>
+  /// <param name="service">The DeleteContributorService.</param>
   public Delete(IDeleteContributorService service)
   {
     _deleteContributorService = service;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
   public override void Configure()
   {
@@ -32,10 +32,10 @@ public class Delete : Endpoint<DeleteContributorRequest>
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
+  /// <param name="request">The Contributor Request Delete contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
     DeleteContributorRequest request,

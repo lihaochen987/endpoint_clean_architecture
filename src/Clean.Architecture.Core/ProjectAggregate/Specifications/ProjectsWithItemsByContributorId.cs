@@ -3,18 +3,18 @@
 using Ardalis.Specification;
 
 /// <summary>
-/// TODO.
+/// The database query specification which gets a project with Items by Contributor Id.
 /// </summary>
-public class ProjectsWithItemsByContributorIdSpec : Specification<Project>, ISingleResultSpecification
+public sealed class ProjectsWithItemsByContributorIdSpec : Specification<Project>, ISingleResultSpecification
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="ProjectsWithItemsByContributorIdSpec"/> class.
   /// </summary>
-  /// <param name="contributorId">TODO.</param>
+  /// <param name="contributorId">The Id of the contributor.</param>
   public ProjectsWithItemsByContributorIdSpec(int contributorId)
   {
     Query
-      .Where(project => project.Items.Where(item => item.ContributorId == contributorId).Any())
+      .Where(project => project.Items.Any(item => item.ContributorId == contributorId))
       .Include(project => project.Items);
   }
 }

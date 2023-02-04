@@ -1,21 +1,21 @@
 ﻿namespace Clean.Architecture.Web.ContributorEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Response DTO from the Contributor Update endpoint.
 /// </summary>
 public class UpdateContributorResponse
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="UpdateContributorResponse"/> class.
   /// </summary>
-  /// <param name="contributor">TODO LATER.</param>
+  /// <param name="contributor">The contributor object.</param>
   public UpdateContributorResponse(ContributorRecord contributor)
   {
     Contributor = contributor;
   }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets or sets the Contributor.
   /// </summary>
   private ContributorRecord Contributor { get; set; }
 }

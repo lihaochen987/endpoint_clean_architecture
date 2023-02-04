@@ -4,7 +4,7 @@ using Clean.Architecture.Core.ProjectAggregate;
 using Xunit;
 
 /// <summary>
-/// TODO.
+/// Tests the construction of the Project class class.
 /// </summary>
 public class ProjectConstructor
 {
@@ -13,7 +13,7 @@ public class ProjectConstructor
   private Project? _testProject;
 
   /// <summary>
-  /// TODO.
+  /// Tests that the constructor initialises the name correctly.
   /// </summary>
   [Fact]
   public void InitializesName()
@@ -24,7 +24,7 @@ public class ProjectConstructor
   }
 
   /// <summary>
-  /// TODO.
+  /// Tests that the constructor initialises the priority correctly.
   /// </summary>
   [Fact]
   public void InitializesPriority()
@@ -35,7 +35,7 @@ public class ProjectConstructor
   }
 
   /// <summary>
-  /// TODO.
+  /// Tests that the constructor initialises the TaskList correctly.
   /// </summary>
   [Fact]
   public void InitializesTaskListToEmptyList()
@@ -46,7 +46,7 @@ public class ProjectConstructor
   }
 
   /// <summary>
-  /// TODO.
+  /// Tests that the constructor initialises the project status correctly.
   /// </summary>
   [Fact]
   public void InitializesStatusToInProgress()

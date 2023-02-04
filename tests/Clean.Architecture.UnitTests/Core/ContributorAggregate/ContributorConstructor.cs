@@ -4,22 +4,16 @@ using Clean.Architecture.Core.ContributorAggregate;
 using Xunit;
 
 /// <summary>
-/// TODO.
+/// Tests the construction of the Contributor class.
 /// </summary>
 public class ContributorConstructor
 {
-  /// <summary>
-  /// TODO.
-  /// </summary>
   private readonly string _testName = "test name";
 
-  /// <summary>
-  /// TODO.
-  /// </summary>
   private Contributor? _testContributor;
 
   /// <summary>
-  /// TODO.
+  /// Tests that the constructor initialises the name correctly.
   /// </summary>
   [Fact]
   public void InitializesName()
@@ -30,9 +24,9 @@ public class ContributorConstructor
   }
 
   /// <summary>
-  /// TODO.
+  /// Initialises the Contributor object.
   /// </summary>
-  /// <returns>TODO LATER.</returns>
+  /// <returns>The Contributor object.</returns>
   private Contributor CreateContributor()
   {
     return new Contributor(_testName);

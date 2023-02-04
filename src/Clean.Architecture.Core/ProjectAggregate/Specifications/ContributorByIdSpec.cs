@@ -4,14 +4,14 @@ using Ardalis.Specification;
 using ContributorAggregate;
 
 /// <summary>
-/// TODO.
+/// The database query specification which gets a Contributor by Id.
 /// </summary>
-public class ContributorByIdSpec : Specification<Contributor>, ISingleResultSpecification
+public sealed class ContributorByIdSpec : Specification<Contributor>, ISingleResultSpecification
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="ContributorByIdSpec"/> class.
   /// </summary>
-  /// <param name="contributorId">TODO.</param>
+  /// <param name="contributorId">The Id of the Contributor.</param>
   public ContributorByIdSpec(int contributorId)
   {
     Query

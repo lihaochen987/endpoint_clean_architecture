@@ -19,9 +19,15 @@ A starting point for Clean Architecture with ASP.NET Core. [Clean Architecture](
   - [The Test Projects](#the-test-projects)
 - [Patterns Used](#patterns-used)
   - [Domain Events](#domain-events)
-  - [Mediator](#mediator)
+  - [MediatR and Handlers in Aggregates](#mediatr-and-handlers-in-aggregates)
   - [Cancellation Tokens?](#cancellation-tokens)
   - [Fast Endpoints](#fast-endpoints)
+  - [Separation of DeleteContributor Service.](#separation-of-deletecontributor-service)
+  - [BuildRoute?](#buildroute)
+  - [Separating Queries?](#separating-queries)
+  - [Handlers?](#handlers)
+  - [Builder pattern for tests](#builder-pattern-for-tests)
+  - [Aggregates and Entity Base](#aggregates-and-entity-base)
 
 ## The Core Project
 
@@ -74,7 +80,7 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 
 ![Domain Event Sequence Diagram](https://user-images.githubusercontent.com/782127/75702680-216ce300-5c73-11ea-9187-ec656192ad3b.png)
 
-## Mediator
+## MediatR and Handlers in Aggregates
 
 - TBD
 
@@ -85,3 +91,28 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 ## Fast Endpoints
 
 - Inherits from the Endpoint class with optional request and body.
+
+## Separation of DeleteContributor Service.
+
+- TBD
+
+## BuildRoute?
+
+- TBD
+
+## Separating Queries?
+
+- TBD
+
+## Handlers?
+
+- TBD
+
+## Builder pattern for tests
+
+- New is Glue!
+- https://ardalis.com/improve-tests-with-the-builder-pattern-for-test-data/
+
+## Aggregates and Entity Base
+
+- TBD

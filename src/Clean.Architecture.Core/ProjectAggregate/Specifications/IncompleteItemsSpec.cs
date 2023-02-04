@@ -3,9 +3,9 @@
 using Ardalis.Specification;
 
 /// <summary>
-/// TODO.
+/// The database query specification which gets all Incomplete items..
 /// </summary>
-public class IncompleteItemsSpec : Specification<ToDoItem>
+public sealed class IncompleteItemsSpec : Specification<ToDoItem>
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="IncompleteItemsSpec"/> class.

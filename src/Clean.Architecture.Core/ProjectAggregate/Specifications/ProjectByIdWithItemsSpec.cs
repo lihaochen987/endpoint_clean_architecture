@@ -4,14 +4,14 @@ using Ardalis.Specification;
 using ProjectAggregate;
 
 /// <summary>
-/// TODO.
+/// The database query specification which gets a Project by Id with to-do items.
 /// </summary>
-public class ProjectByIdWithItemsSpec : Specification<Project>, ISingleResultSpecification
+public sealed class ProjectByIdWithItemsSpec : Specification<Project>, ISingleResultSpecification
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="ProjectByIdWithItemsSpec"/> class.
   /// </summary>
-  /// <param name="projectId">TODO.</param>
+  /// <param name="projectId">The Id of the project.</param>
   public ProjectByIdWithItemsSpec(int projectId)
   {
     Query

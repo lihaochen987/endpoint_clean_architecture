@@ -1,12 +1,12 @@
 namespace Clean.Architecture.Web.ContributorEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Response DTO from the Contributor List endpoint.
 /// </summary>
 public class ContributorListResponse
 {
   /// <summary>
-  /// Gets tODO.
+  /// Gets the Contributors.
   /// </summary>
   public List<ContributorRecord> Contributors { get; init; } = new ();
 }
