@@ -20,6 +20,8 @@ A starting point for Clean Architecture with ASP.NET Core. [Clean Architecture](
 - [Patterns Used](#patterns-used)
   - [Domain Events](#domain-events)
   - [Mediator](#mediator)
+  - [Cancellation Tokens?](#cancellation-tokens)
+  - [Fast Endpoints](#fast-endpoints)
 
 ## The Core Project
 
@@ -74,4 +76,12 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 
 ## Mediator
 
-TBD
+- TBD
+
+## Cancellation Tokens?
+
+- TBD
+
+## Fast Endpoints
+
+- Inherits from the Endpoint class with optional request and body.
