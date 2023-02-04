@@ -109,7 +109,7 @@ internal class Program
 
         // context.Database.Migrate();
         context.Database.EnsureCreated();
-        SeedData.Initialize(services);
+        AppDbContextSeed.Initialize(services);
       }
       catch (Exception ex)
       {
