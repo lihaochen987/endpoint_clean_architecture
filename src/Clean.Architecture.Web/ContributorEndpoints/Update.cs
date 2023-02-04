@@ -1,7 +1,8 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
+﻿namespace Clean.Architecture.Web.ContributorEndpoints;
 
 using Core.ContributorAggregate;
 using SharedKernel.Interfaces;
+using Clean.Architecture.Web.Endpoints.ContributorEndpoints;
 using FastEndpoints;
 
 /// <summary>

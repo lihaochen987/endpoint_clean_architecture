@@ -1,8 +1,9 @@
-﻿namespace Clean.Architecture.Web.Endpoints.ContributorEndpoints;
+﻿namespace Clean.Architecture.Web.ContributorEndpoints;
 
 using Core.ContributorAggregate;
 using Core.ProjectAggregate.Specifications;
 using SharedKernel.Interfaces;
+using Clean.Architecture.Web.Endpoints.ContributorEndpoints;
 using FastEndpoints;
 
 /// <summary>
@@ -39,8 +40,8 @@ public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
   /// <param name="cancellationToken">TODO LATER2.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   public override async Task HandleAsync(
-      GetContributorByIdRequest request,
-      CancellationToken cancellationToken)
+    GetContributorByIdRequest request,
+    CancellationToken cancellationToken)
   {
     var spec = new ContributorByIdSpec(request.ContributorId);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
