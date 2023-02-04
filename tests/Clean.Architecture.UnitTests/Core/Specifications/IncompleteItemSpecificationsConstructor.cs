@@ -1,11 +1,17 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.Specifications;
+
+using Clean.Architecture.Core.ProjectAggregate;
 using Clean.Architecture.Core.ProjectAggregate.Specifications;
 using Xunit;
 
-namespace Clean.Architecture.UnitTests.Core.Specifications;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class IncompleteItemsSpecificationConstructor
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
   [Fact]
   public void FilterCollectionToOnlyReturnItemsWithIsDoneFalse()
   {
@@ -20,8 +26,9 @@ public class IncompleteItemsSpecificationConstructor
 
     var filteredList = spec.Evaluate(items);
 
-    Assert.Contains(item1, filteredList);
-    Assert.Contains(item2, filteredList);
-    Assert.DoesNotContain(item3, filteredList);
+    IEnumerable<ToDoItem> toDoItems = filteredList.ToList();
+    Assert.Contains(item1, toDoItems);
+    Assert.Contains(item2, toDoItems);
+    Assert.DoesNotContain(item3, toDoItems);
   }
 }

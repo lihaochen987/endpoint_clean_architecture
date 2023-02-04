@@ -11,21 +11,12 @@ public class ContributorConstructor
   /// <summary>
   /// TODO.
   /// </summary>
-  private readonly string testName = "test name";
+  private readonly string _testName = "test name";
 
   /// <summary>
   /// TODO.
   /// </summary>
-  private Contributor? testContributor;
-
-  /// <summary>
-  /// TODO.
-  /// </summary>
-  /// <returns>TODO LATER.</returns>
-  private Contributor CreateContributor()
-  {
-    return new Contributor(testName);
-  }
+  private Contributor? _testContributor;
 
   /// <summary>
   /// TODO.
@@ -33,8 +24,17 @@ public class ContributorConstructor
   [Fact]
   public void InitializesName()
   {
-    testContributor = CreateContributor();
+    _testContributor = CreateContributor();
 
-    Assert.Equal(testName, testContributor.Name);
+    Assert.Equal(_testName, _testContributor.Name);
+  }
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>TODO LATER.</returns>
+  private Contributor CreateContributor()
+  {
+    return new Contributor(_testName);
   }
 }

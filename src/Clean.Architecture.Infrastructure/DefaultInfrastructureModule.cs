@@ -16,7 +16,7 @@ using Module = Autofac.Module;
 /// </summary>
 public class DefaultInfrastructureModule : Module
 {
-  private readonly bool _isDevelopment = false;
+  private readonly bool _isDevelopment;
   private readonly List<Assembly> _assemblies = new List<Assembly>();
 
   /// <summary>

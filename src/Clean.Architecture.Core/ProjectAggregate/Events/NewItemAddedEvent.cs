@@ -23,10 +23,10 @@ public class NewItemAddedEvent : DomainEventBase
   /// <summary>
   /// Gets or sets the NewItem.
   /// </summary>
-  public ToDoItem NewItem { get; set; }
+  private ToDoItem NewItem { get; set; }
 
   /// <summary>
   /// Gets or sets the Project.
   /// </summary>
-  public Project Project { get; set; }
+  private Project Project { get; set; }
 }

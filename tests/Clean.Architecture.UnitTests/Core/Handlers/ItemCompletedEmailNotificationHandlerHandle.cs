@@ -15,11 +15,12 @@ public class ItemCompletedEmailNotificationHandlerHandle
   /// <summary>
   /// TODO.
   /// </summary>
-  private ItemCompletedEmailNotificationHandler _handler;
+  private readonly ItemCompletedEmailNotificationHandler _handler;
+
   /// <summary>
   /// TODO.
   /// </summary>
-  private Mock<IEmailSender> _emailSenderMock;
+  private readonly Mock<IEmailSender> _emailSenderMock;
 
   /// <summary>
   /// Initializes a new instance of the <see cref="ItemCompletedEmailNotificationHandlerHandle"/> class.
@@ -37,9 +38,8 @@ public class ItemCompletedEmailNotificationHandlerHandle
   [Fact]
   public async Task ThrowsExceptionGivenNullEventArgument()
   {
-#nullable disable
-    Exception ex = await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null, CancellationToken.None));
-#nullable enable
+    Exception ex =
+      await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null!, CancellationToken.None));
   }
 
   /// <summary>

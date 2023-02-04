@@ -1,10 +1,17 @@
-﻿using Clean.Architecture.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.IntegrationTests.Data;
+
+using Core.ProjectAggregate;
 using Xunit;
 
-namespace Clean.Architecture.IntegrationTests.Data;
-
+/// <summary>
+/// TODO.
+/// </summary>
 public class EfRepositoryAdd : BaseEfRepoTestFixture
 {
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
   public async Task AddsProjectAndSetsId()
   {
@@ -16,7 +23,7 @@ public class EfRepositoryAdd : BaseEfRepoTestFixture
     await repository.AddAsync(project);
 
     var newProject = (await repository.ListAsync())
-                    .FirstOrDefault();
+      .FirstOrDefault();
 
     Assert.Equal(testProjectName, newProject?.Name);
     Assert.Equal(testProjectStatus, newProject?.Priority);

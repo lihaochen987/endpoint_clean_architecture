@@ -18,7 +18,7 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
   /// <param name="a">TODO LATER2.</param>
   /// <param name="b">TODO LATER3.</param>
   /// <returns>TODO LATER4.</returns>
-  public static bool operator ==(ValueObject a, ValueObject b)
+  public static bool operator ==(ValueObject? a, ValueObject? b)
   {
     if (a is null && b is null)
     {
@@ -33,6 +33,12 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
     return a.Equals(b);
   }
 
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <param name="a">TODO LATER.</param>
+  /// <param name="b">TODO LATER2.</param>
+  /// <returns>TODO LATER3.</returns>
   public static bool operator !=(ValueObject a, ValueObject b)
   {
     return !(a == b);
@@ -66,17 +72,14 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
   /// <returns>TODO LATER.</returns>
   public override int GetHashCode()
   {
-    if (!_cachedHashCode.HasValue)
-    {
-      _cachedHashCode = GetEqualityComponents()
-        .Aggregate(1, (current, obj) =>
+    _cachedHashCode ??= GetEqualityComponents()
+      .Aggregate(1, (current, obj) =>
+      {
+        unchecked
         {
-          unchecked
-          {
-            return (current * 23) + (obj?.GetHashCode() ?? 0);
-          }
-        });
-    }
+          return (current * 23) + obj.GetHashCode();
+        }
+      });
 
     return _cachedHashCode.Value;
   }
@@ -137,13 +140,13 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
   {
     ArgumentNullException.ThrowIfNull(obj);
 
-    const string EFCoreProxyPrefix = "Castle.Proxies.";
-    const string NHibernateProxyPostfix = "Proxy";
+    const string efCoreProxyPrefix = "Castle.Proxies.";
+    const string nHibernateProxyPostfix = "Proxy";
 
     var type = obj.GetType();
     var typeString = type.ToString();
 
-    if (typeString.Contains(EFCoreProxyPrefix) || typeString.EndsWith(NHibernateProxyPostfix))
+    if (typeString.Contains(efCoreProxyPrefix) || typeString.EndsWith(nHibernateProxyPostfix))
     {
       return type.BaseType!;
     }
