@@ -13,42 +13,37 @@ public static class AppDbContextSeed
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly Contributor Contributor1 = new ("Ardalis");
+  private static readonly Contributor _contributor1 = new ("Ardalis");
 
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly Contributor Contributor2 = new ("Snowfrog");
+  private static readonly Contributor _contributor2 = new ("Snowfrog");
 
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly Project TestProject1 = new Project("Test Project", PriorityStatus.Backlog);
+  private static readonly Project _testProject1 = new Project("Test Project", PriorityStatus.Backlog);
 
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly ToDoItem ToDoItem1 = new ToDoItem
-  {
-    Title = "Get Sample Working", Description = "Try to get the sample to build.",
-  };
+  private static readonly ToDoItem _toDoItem1 = new ToDoItem("Get Sample Working", "Try to get the sample to build.");
 
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly ToDoItem ToDoItem2 = new ToDoItem
-  {
-    Title = "Review Solution",
-    Description = "Review the different projects in the solution and how they relate to one another.",
-  };
+  private static readonly ToDoItem _toDoItem2 =
+    new ToDoItem(
+      "Review Solution",
+      "Review the different projects in the solution and how they relate to one another.");
 
   /// <summary>
   /// TODO.
   /// </summary>
-  public static readonly ToDoItem ToDoItem3 = new ToDoItem
-  {
-    Title = "Run and Review Tests", Description = "Make sure all the tests run and review what they are doing.",
-  };
+  private static readonly ToDoItem _toDoItem3 = new ToDoItem(
+    "Run and Review Tests",
+    "Make sure all the tests run and review what they are doing.");
 
   /// <summary>
   /// TODO.
@@ -56,24 +51,23 @@ public static class AppDbContextSeed
   /// <param name="serviceProvider">TODO LATER.</param>
   public static void Initialize(IServiceProvider serviceProvider)
   {
-    using (var dbContext = new AppDbContext(
-             serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(), null))
-    {
-      // Look for any TODO items.
-      if (dbContext.ToDoItems.Any())
-      {
-        return; // DB has been seeded
-      }
+    using var dbContext = new AppDbContext(
+      serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(), null);
 
-      PopulateTestData(dbContext);
+    // Look for any to-do items.
+    if (dbContext.ToDoItems.Any())
+    {
+      return; // DB has been seeded
     }
+
+    PopulateTestData(dbContext);
   }
 
   /// <summary>
   /// TODO.
   /// </summary>
   /// <param name="dbContext">TODO LATER.</param>
-  public static void PopulateTestData(AppDbContext dbContext)
+  private static void PopulateTestData(AppDbContext dbContext)
   {
     foreach (var item in dbContext.Projects)
     {
@@ -92,19 +86,19 @@ public static class AppDbContextSeed
 
     dbContext.SaveChanges();
 
-    dbContext.Contributors.Add(Contributor1);
-    dbContext.Contributors.Add(Contributor2);
+    dbContext.Contributors.Add(_contributor1);
+    dbContext.Contributors.Add(_contributor2);
 
     dbContext.SaveChanges();
 
-    ToDoItem1.AddContributor(Contributor1.Id);
-    ToDoItem2.AddContributor(Contributor2.Id);
-    ToDoItem3.AddContributor(Contributor1.Id);
+    _toDoItem1.AddContributor(_contributor1.Id);
+    _toDoItem2.AddContributor(_contributor2.Id);
+    _toDoItem3.AddContributor(_contributor1.Id);
 
-    TestProject1.AddItem(ToDoItem1);
-    TestProject1.AddItem(ToDoItem2);
-    TestProject1.AddItem(ToDoItem3);
-    dbContext.Projects.Add(TestProject1);
+    _testProject1.AddItem(_toDoItem1);
+    _testProject1.AddItem(_toDoItem2);
+    _testProject1.AddItem(_toDoItem3);
+    dbContext.Projects.Add(_testProject1);
 
     dbContext.SaveChanges();
   }

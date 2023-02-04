@@ -49,7 +49,7 @@ public class ItemCompletedEmailNotificationHandlerHandle
   [Fact]
   public async Task SendsEmailGivenEventInstance()
   {
-    await _handler.Handle(new ToDoItemCompletedEvent(new ToDoItem()), CancellationToken.None);
+    await _handler.Handle(new ToDoItemCompletedEvent(new ToDoItem(string.Empty, string.Empty)), CancellationToken.None);
 
     _emailSenderMock.Verify(
       sender => sender.SendEmailAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()),

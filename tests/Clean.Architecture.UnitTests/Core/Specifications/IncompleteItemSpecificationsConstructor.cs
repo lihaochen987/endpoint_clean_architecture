@@ -15,9 +15,9 @@ public class IncompleteItemsSpecificationConstructor
   [Fact]
   public void FilterCollectionToOnlyReturnItemsWithIsDoneFalse()
   {
-    var item1 = new ToDoItem();
-    var item2 = new ToDoItem();
-    var item3 = new ToDoItem();
+    var item1 = new ToDoItem(string.Empty, string.Empty);
+    var item2 = new ToDoItem(string.Empty, string.Empty);
+    var item3 = new ToDoItem(string.Empty, string.Empty);
     item3.MarkComplete();
 
     var items = new List<ToDoItem>() { item1, item2, item3 };

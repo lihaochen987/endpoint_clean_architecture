@@ -7,7 +7,7 @@ using Clean.Architecture.Core.ProjectAggregate;
 /// </summary>
 public class ToDoItemBuilder
 {
-  private ToDoItem _todo = new ToDoItem();
+  private ToDoItem _todo = new ToDoItem(string.Empty, string.Empty);
 
   /// <summary>
   /// Instantiates a to-do item object.
@@ -27,7 +27,7 @@ public class ToDoItemBuilder
   /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder Title(string title)
   {
-    _todo.Title = title;
+    _todo.SetTitle(title);
     return this;
   }
 
@@ -38,7 +38,7 @@ public class ToDoItemBuilder
   /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder Description(string description)
   {
-    _todo.Description = description;
+    _todo.SetDescription(description);
     return this;
   }
 
@@ -48,7 +48,7 @@ public class ToDoItemBuilder
   /// <returns>The to-do item builder object.</returns>
   public ToDoItemBuilder WithDefaultValues()
   {
-    _todo = new ToDoItem() { Id = 1, Title = "Test Item", Description = "Test Description" };
+    _todo = new ToDoItem("Test Item", "Test Description") { Id = 1 };
 
     return this;
   }

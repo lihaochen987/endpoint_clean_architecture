@@ -19,7 +19,7 @@ public class ProjectAddItem
   [Fact]
   public void AddsItemToItems()
   {
-    var testItem = new ToDoItem { Title = "title", Description = "description" };
+    var testItem = new ToDoItem("title", "description");
 
     _testProject.AddItem(testItem);
 

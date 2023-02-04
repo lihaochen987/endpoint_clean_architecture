@@ -10,14 +10,25 @@ using SharedKernel;
 public class ToDoItem : EntityBase
 {
   /// <summary>
-  /// Gets or sets the Title of the ToDoItem.
+  /// Initializes a new instance of the <see cref="ToDoItem"/> class.
   /// </summary>
-  public string Title { get; set; } = string.Empty;
+  /// <param name="title">The title of the to-do item.</param>
+  /// <param name="description">The description of the to-do item.</param>
+  public ToDoItem(string title, string description)
+  {
+    Title = title;
+    Description = description;
+  }
 
   /// <summary>
-  /// Gets or sets the Description of the ToDoItem.
+  /// Gets the Title of the ToDoItem.
   /// </summary>
-  public string Description { get; set; } = string.Empty;
+  public string Title { get; private set; }
+
+  /// <summary>
+  /// Gets the Description of the ToDoItem.
+  /// </summary>
+  public string Description { get; private set; }
 
   /// <summary>
   /// Gets the ContributorId of the ToDoItem.
@@ -71,5 +82,23 @@ public class ToDoItem : EntityBase
   {
     string status = IsDone ? "Done!" : "Not done.";
     return $"{Id}: Status: {status} - {Title} - {Description}";
+  }
+
+  /// <summary>
+  /// Sets the title of the to-do item object.
+  /// </summary>
+  /// <param name="title">The title.</param>
+  public void SetTitle(string title)
+  {
+    Title = title;
+  }
+
+  /// <summary>
+  /// Sets the description of the to-do item object.
+  /// </summary>
+  /// <param name="description">The description.</param>
+  public void SetDescription(string description)
+  {
+    Description = description;
   }
 }
