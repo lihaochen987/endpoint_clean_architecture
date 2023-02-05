@@ -101,4 +101,13 @@ public class ToDoItem : EntityBase
   {
     Description = description;
   }
+
+  /// <summary>
+  /// Sets whether the to-do item is completed.
+  /// </summary>
+  /// <param name="isDone">The status of the to-do item.</param>
+  public void SetIsDone(bool isDone)
+  {
+    IsDone = isDone;
+  }
 }

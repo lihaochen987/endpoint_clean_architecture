@@ -60,7 +60,17 @@ public class ToDoItemBuilder
   public ToDoItemBuilder WithDefaultValues()
   {
     _todo = new ToDoItem("Test Item", "Test Description") { Id = 1 };
+    return this;
+  }
 
+  /// <summary>
+  /// Sets the IsDone status of the to-do item object.
+  /// </summary>
+  /// <param name="isDone">Whether the object is completed.</param>
+  /// <returns>The to-do item builder object.</returns>
+  public ToDoItemBuilder IsDone(bool isDone)
+  {
+    _todo.SetIsDone(isDone);
     return this;
   }
 
