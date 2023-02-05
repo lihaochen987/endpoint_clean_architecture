@@ -6,49 +6,49 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// TODO.
+/// Seeds the initial Database.
 /// </summary>
 public static class AppDbContextSeed
 {
   /// <summary>
-  /// TODO.
+  /// A Contributor object.
   /// </summary>
-  private static readonly Contributor _contributor1 = new ("Ardalis");
+  public static readonly Contributor Contributor1 = new ("Ardalis");
 
   /// <summary>
-  /// TODO.
+  /// A Contributor object.
   /// </summary>
-  private static readonly Contributor _contributor2 = new ("Snowfrog");
+  public static readonly Contributor Contributor2 = new ("Snowfrog");
 
   /// <summary>
-  /// TODO.
+  /// A Project object.
   /// </summary>
-  private static readonly Project _testProject1 = new Project("Test Project", PriorityStatus.Backlog);
+  public static readonly Project TestProject1 = new Project("Test Project", PriorityStatus.Backlog);
 
   /// <summary>
-  /// TODO.
+  /// A To-do item object.
   /// </summary>
-  private static readonly ToDoItem _toDoItem1 = new ToDoItem("Get Sample Working", "Try to get the sample to build.");
+  public static readonly ToDoItem ToDoItem1 = new ToDoItem("Get Sample Working", "Try to get the sample to build.");
 
   /// <summary>
-  /// TODO.
+  /// A To-do item object.
   /// </summary>
-  private static readonly ToDoItem _toDoItem2 =
+  public static readonly ToDoItem ToDoItem2 =
     new ToDoItem(
       "Review Solution",
       "Review the different projects in the solution and how they relate to one another.");
 
   /// <summary>
-  /// TODO.
+  /// A To-do item object.
   /// </summary>
-  private static readonly ToDoItem _toDoItem3 = new ToDoItem(
+  public static readonly ToDoItem ToDoItem3 = new ToDoItem(
     "Run and Review Tests",
     "Make sure all the tests run and review what they are doing.");
 
   /// <summary>
-  /// TODO.
+  /// Initialises the Service Provider.
   /// </summary>
-  /// <param name="serviceProvider">TODO LATER.</param>
+  /// <param name="serviceProvider">The Service provider.</param>
   public static void Initialize(IServiceProvider serviceProvider)
   {
     using var dbContext = new AppDbContext(
@@ -64,10 +64,10 @@ public static class AppDbContextSeed
   }
 
   /// <summary>
-  /// TODO.
+  /// Method which populates the database.
   /// </summary>
-  /// <param name="dbContext">TODO LATER.</param>
-  private static void PopulateTestData(AppDbContext dbContext)
+  /// <param name="dbContext">The database context to be populated.</param>
+  public static void PopulateTestData(AppDbContext dbContext)
   {
     foreach (var item in dbContext.Projects)
     {
@@ -86,19 +86,19 @@ public static class AppDbContextSeed
 
     dbContext.SaveChanges();
 
-    dbContext.Contributors.Add(_contributor1);
-    dbContext.Contributors.Add(_contributor2);
+    dbContext.Contributors.Add(Contributor1);
+    dbContext.Contributors.Add(Contributor2);
 
     dbContext.SaveChanges();
 
-    _toDoItem1.AddContributor(_contributor1.Id);
-    _toDoItem2.AddContributor(_contributor2.Id);
-    _toDoItem3.AddContributor(_contributor1.Id);
+    ToDoItem1.AddContributor(Contributor1.Id);
+    ToDoItem2.AddContributor(Contributor2.Id);
+    ToDoItem3.AddContributor(Contributor1.Id);
 
-    _testProject1.AddItem(_toDoItem1);
-    _testProject1.AddItem(_toDoItem2);
-    _testProject1.AddItem(_toDoItem3);
-    dbContext.Projects.Add(_testProject1);
+    TestProject1.AddItem(ToDoItem1);
+    TestProject1.AddItem(ToDoItem2);
+    TestProject1.AddItem(ToDoItem3);
+    dbContext.Projects.Add(TestProject1);
 
     dbContext.SaveChanges();
   }
