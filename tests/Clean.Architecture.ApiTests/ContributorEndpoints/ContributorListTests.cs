@@ -5,6 +5,7 @@ using Ardalis.HttpClientTestExtensions;
 using Web;
 using Xunit;
 using Infrastructure.Data;
+using Shouldly;
 
 /// <summary>
 /// TODO.
@@ -30,10 +31,12 @@ public class ContributorListTests : IClassFixture<CustomWebApplicationFactory<We
   [Fact]
   public async Task ReturnsTwoContributors()
   {
+    // Act
     var result = await _client.GetAndDeserializeAsync<ContributorListResponse>("/Contributors");
 
-    Assert.Equal(2, result.Contributors.Count);
-    Assert.Contains(result.Contributors, i => i.name == AppDbContextSeed.Contributor1.Name);
-    Assert.Contains(result.Contributors, i => i.name == AppDbContextSeed.Contributor2.Name);
+    // Assert
+    result.Contributors.Count.ShouldBe(2);
+    result.Contributors.ShouldContain(i => i.name == AppDbContextSeed.Contributor1.Name);
+    result.Contributors.ShouldContain(i => i.name == AppDbContextSeed.Contributor2.Name);
   }
 }
