@@ -28,6 +28,7 @@ A starting point for Clean Architecture with ASP.NET Core. [Clean Architecture](
   - [Handlers?](#handlers)
   - [Builder pattern for tests](#builder-pattern-for-tests)
   - [Aggregates and Entity Base](#aggregates-and-entity-base)
+  - [Testing?](#testing)
 
 ## The Core Project
 
@@ -119,4 +120,5 @@ Domain events are a great pattern for decoupling a trigger for an operation from
 
 ## Testing?
 
-- TBD
+- One-to-one test of entity methods (exlcuding getters and setters)
+- One-to-one test of entity specifications
