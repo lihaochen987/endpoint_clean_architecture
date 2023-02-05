@@ -15,16 +15,16 @@ public class EfRepositoryDelete : BaseEfRepoTestFixture
   [Fact]
   public async Task DeletesItemAfterAddingIt()
   {
-    // add a project
+    // Arrange
     var repository = GetRepository();
     var initialName = Guid.NewGuid().ToString();
     var project = new Project(initialName, PriorityStatus.Backlog);
     await repository.AddAsync(project);
 
-    // delete the item
+    // Act
     await repository.DeleteAsync(project);
 
-    // verify it's no longer there
+    // Assert
     Assert.DoesNotContain(
       await repository.ListAsync(),
       p => p.Name == initialName);

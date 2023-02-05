@@ -16,6 +16,7 @@ public class EfRepositoryUpdate : BaseEfRepoTestFixture
   [Fact]
   public async Task UpdatesItemAfterAddingIt()
   {
+    // Arrange
     // add a project
     var repository = GetRepository();
     var initialName = Guid.NewGuid().ToString();
@@ -39,10 +40,10 @@ public class EfRepositoryUpdate : BaseEfRepoTestFixture
     var newName = Guid.NewGuid().ToString();
     newProject.UpdateName(newName);
 
-    // Update the item
+    // Act
     await repository.UpdateAsync(newProject);
 
-    // Fetch the updated item
+    // Assert
     var updatedItem = (await repository.ListAsync())
       .FirstOrDefault(project => project.Name == newName);
 

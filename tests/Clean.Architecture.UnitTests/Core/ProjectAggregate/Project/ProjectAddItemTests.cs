@@ -1,20 +1,20 @@
-﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate.Project;
 
 using Clean.Architecture.Core.ProjectAggregate;
 using Xunit;
 
 /// <summary>
-/// TODO.
+/// Tests the AddItem method of Project.
 /// </summary>
 public class ProjectAddItem
 {
   /// <summary>
-  /// TODO.
+  /// Initialises the Project object.
   /// </summary>
-  private readonly Project _testProject = new Project("some name", PriorityStatus.Backlog);
+  private readonly Project _testProject = new ("some name", PriorityStatus.Backlog);
 
   /// <summary>
-  /// TODO.
+  /// Successfully adds items to the project.
   /// </summary>
   [Fact]
   public void AddsItemToItems()
@@ -30,7 +30,7 @@ public class ProjectAddItem
   }
 
   /// <summary>
-  /// TODO.
+  /// Successfully throws an exception when the item is null.
   /// </summary>
   [Fact]
   public void ThrowsExceptionGivenNullItem()

@@ -1,7 +1,8 @@
-﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate;
+﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate.ToDoItem;
 
-using Builders;
+using Shouldly;
 using Clean.Architecture.Core.ProjectAggregate.Events;
+using Builders;
 using Xunit;
 
 /// <summary>
@@ -25,7 +26,7 @@ public class ToDoItemMarkComplete
     item.MarkComplete();
 
     // Assert
-    Assert.True(item.IsDone);
+    item.IsDone.ShouldBe(true);
   }
 
   /// <summary>
@@ -41,7 +42,7 @@ public class ToDoItemMarkComplete
     item.MarkComplete();
 
     // Assert
-    Assert.Single(item.DomainEvents);
-    Assert.IsType<ToDoItemCompletedEvent>(item.DomainEvents.First());
+    item.DomainEvents.Count().ShouldBe(1);
+    item.DomainEvents.First().ShouldBeOfType<ToDoItemCompletedEvent>();
   }
 }

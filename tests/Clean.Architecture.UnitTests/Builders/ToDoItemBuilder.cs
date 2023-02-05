@@ -21,6 +21,17 @@ public class ToDoItemBuilder
   }
 
   /// <summary>
+  /// Adds a Contributor to the object.
+  /// </summary>
+  /// <param name="id">The id of the Contributor.</param>
+  /// <returns>The to-do item builder object.</returns>
+  public ToDoItemBuilder Contributor(int id)
+  {
+    _todo.AddContributor(id);
+    return this;
+  }
+
+  /// <summary>
   /// Sets the title of the to-do item object.
   /// </summary>
   /// <param name="title">The Title of the to-do item object.</param>

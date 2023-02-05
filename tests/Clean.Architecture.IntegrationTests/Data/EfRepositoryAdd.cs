@@ -2,6 +2,7 @@
 
 using Core.ProjectAggregate;
 using Xunit;
+using Shouldly;
 
 /// <summary>
 /// TODO.
@@ -15,18 +16,20 @@ public class EfRepositoryAdd : BaseEfRepoTestFixture
   [Fact]
   public async Task AddsProjectAndSetsId()
   {
+    // Arrange
     var testProjectName = "testProject";
     var testProjectStatus = PriorityStatus.Backlog;
     var repository = GetRepository();
     var project = new Project(testProjectName, testProjectStatus);
 
+    // Act
     await repository.AddAsync(project);
 
+    // Assert
     var newProject = (await repository.ListAsync())
       .FirstOrDefault();
-
-    Assert.Equal(testProjectName, newProject?.Name);
-    Assert.Equal(testProjectStatus, newProject?.Priority);
-    Assert.True(newProject?.Id > 0);
+    testProjectName.ShouldBe(newProject?.Name);
+    testProjectStatus.ShouldBe(newProject?.Priority);
+    newProject?.Id.ShouldBeGreaterThan(0);
   }
 }
