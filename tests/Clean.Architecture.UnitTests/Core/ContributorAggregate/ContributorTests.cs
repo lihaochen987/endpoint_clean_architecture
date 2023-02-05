@@ -1,12 +1,13 @@
-﻿namespace Clean.Architecture.UnitTests.Core.ContributorAggregate.Contributor;
+﻿namespace Clean.Architecture.UnitTests.Core.ContributorAggregate;
 
+using Clean.Architecture.Core.ContributorAggregate;
 using Shouldly;
 using Xunit;
 
 /// <summary>
-/// Tests the UpdateName method of the Contributor.
+/// Tests the Contributor domain object.
 /// </summary>
-public class ContributorUpdateNameTests
+public class ContributorTests
 {
   /// <summary>
   /// Whether the Name is successfully updated.
@@ -15,7 +16,7 @@ public class ContributorUpdateNameTests
   public void NameSuccessfullyUpdated()
   {
     // Arrange
-    var contributor = new Architecture.Core.ContributorAggregate.Contributor("TestName1");
+    var contributor = new Contributor("TestName1");
 
     // Act
     contributor.UpdateName("TestName2");

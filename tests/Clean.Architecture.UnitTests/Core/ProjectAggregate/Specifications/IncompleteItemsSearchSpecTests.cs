@@ -1,12 +1,13 @@
 ﻿namespace Clean.Architecture.UnitTests.Core.ProjectAggregate.Specifications;
 
+using Architecture.Core.ProjectAggregate;
 using Clean.Architecture.Core.ProjectAggregate.Specifications;
 using Builders;
 using Shouldly;
 using Xunit;
 
 /// <summary>
-/// Tests the searching incomplete items by string.
+/// Tests searching incomplete items by string.
 /// </summary>
 public class IncompleteItemsSearchSpecTests
 {
@@ -29,12 +30,12 @@ public class IncompleteItemsSearchSpecTests
     result.Title.ShouldBe("Test Title");
   }
 
-  private List<Architecture.Core.ProjectAggregate.ToDoItem> GetSingleItem()
+  private List<ToDoItem> GetSingleItem()
   {
     var toDoItemOne = new ToDoItemBuilder().WithDefaultValues().Id(1).IsDone(false).Title("Test Title").Build();
     var toDoItemTwo = new ToDoItemBuilder().WithDefaultValues().Id(2).IsDone(false).Build();
     var toDoItemThree = new ToDoItemBuilder().WithDefaultValues().Id(3).IsDone(false).Build();
 
-    return new List<Architecture.Core.ProjectAggregate.ToDoItem> { toDoItemOne, toDoItemTwo, toDoItemThree, };
+    return new List<ToDoItem> { toDoItemOne, toDoItemTwo, toDoItemThree, };
   }
 }

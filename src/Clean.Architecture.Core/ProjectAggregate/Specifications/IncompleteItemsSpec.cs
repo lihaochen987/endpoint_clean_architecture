@@ -3,7 +3,7 @@
 using Ardalis.Specification;
 
 /// <summary>
-/// The database query specification which gets all Incomplete items..
+/// The database query specification which gets all Incomplete items.
 /// </summary>
 public sealed class IncompleteItemsSpec : Specification<ToDoItem>
 {
