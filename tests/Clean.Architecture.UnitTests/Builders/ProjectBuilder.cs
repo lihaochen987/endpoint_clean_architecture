@@ -7,7 +7,7 @@ using Clean.Architecture.Core.ProjectAggregate;
 /// </summary>
 public class ProjectBuilder
 {
-  private readonly Project _project = new Project("TestProject", PriorityStatus.Critical);
+  private readonly Project _project = new ("TestProject", PriorityStatus.Critical);
 
   /// <summary>
   /// Sets the Id of the ProjectBuilder.

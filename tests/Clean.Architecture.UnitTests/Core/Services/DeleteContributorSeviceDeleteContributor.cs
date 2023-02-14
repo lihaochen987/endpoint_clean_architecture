@@ -13,8 +13,8 @@ using Xunit;
 /// </summary>
 public class DeleteContributorServiceDeleteContributor
 {
-  private readonly Mock<IRepository<Contributor>> _mockRepo = new Mock<IRepository<Contributor>>();
-  private readonly Mock<IMediator> _mockMediator = new Mock<IMediator>();
+  private readonly Mock<IRepository<Contributor>> _mockRepo = new ();
+  private readonly Mock<IMediator> _mockMediator = new ();
   private readonly DeleteContributorService _service;
 
   /// <summary>

@@ -7,7 +7,7 @@ using Clean.Architecture.Core.ProjectAggregate;
 /// </summary>
 public class ToDoItemBuilder
 {
-  private ToDoItem _todo = new ToDoItem(string.Empty, string.Empty);
+  private ToDoItem _todo = new (string.Empty, string.Empty);
 
   /// <summary>
   /// Instantiates a to-do item object.

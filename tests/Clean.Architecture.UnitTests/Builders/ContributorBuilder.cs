@@ -7,7 +7,7 @@ using Clean.Architecture.Core.ContributorAggregate;
 /// </summary>
 public class ContributorBuilder
 {
-  private readonly Contributor _contributor = new Contributor("test");
+  private readonly Contributor _contributor = new ("test");
 
   /// <summary>
   /// Sets the Id of the ContributorBuilder.
