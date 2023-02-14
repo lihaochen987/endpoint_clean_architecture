@@ -11,9 +11,9 @@ using Clean.Architecture.SharedKernel.Interfaces;
 public class Project : EntityBase, IAggregateRoot
 {
   /// <summary>
-  /// TODO.
+  /// The list of to-do items associated with the Project.
   /// </summary>
-  private readonly List<ToDoItem> _items = new List<ToDoItem>();
+  private readonly List<ToDoItem> _items = new ();
 
   /// <summary>
   /// Initializes a new instance of the <see cref="Project"/> class.

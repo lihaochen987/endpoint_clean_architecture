@@ -19,7 +19,7 @@ public interface IToDoItemSearchService
   /// Gets all incomplete To-do items.
   /// </summary>
   /// <param name="projectId">The projectId of the To-do item.</param>
-  /// <param name="searchString">TODO.</param>
+  /// <param name="searchString">The string to be searched of the incomplete items.</param>
   /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
   Task<Result<List<ToDoItem>>> GetAllIncompleteItemsAsync(int projectId, string searchString);
 }

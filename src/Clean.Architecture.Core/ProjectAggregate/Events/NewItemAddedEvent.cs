@@ -3,15 +3,15 @@
 using SharedKernel;
 
 /// <summary>
-/// TODO.
+/// The event that a new item has been added to a project.
 /// </summary>
 public class NewItemAddedEvent : DomainEventBase
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="NewItemAddedEvent"/> class.
   /// </summary>
-  /// <param name="project"> TODO.</param>
-  /// <param name="newItem"> TODO later.</param>
+  /// <param name="project"> The project being added to.</param>
+  /// <param name="newItem"> The item being added to the project.</param>
   public NewItemAddedEvent(
     Project project,
     ToDoItem newItem)
@@ -21,12 +21,12 @@ public class NewItemAddedEvent : DomainEventBase
   }
 
   /// <summary>
-  /// Gets or sets the NewItem.
+  /// Gets the NewItem.
   /// </summary>
-  private ToDoItem NewItem { get; set; }
+  private ToDoItem NewItem { get; }
 
   /// <summary>
-  /// Gets or sets the Project.
+  /// Gets the Project.
   /// </summary>
-  private Project Project { get; set; }
+  private Project Project { get; }
 }

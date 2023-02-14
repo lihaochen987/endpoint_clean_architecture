@@ -3,7 +3,7 @@
 using SharedKernel;
 
 /// <summary>
-/// TODO.
+/// The event that a to-do item has been completed.
 /// </summary>
 public class ToDoItemCompletedEvent : DomainEventBase
 {

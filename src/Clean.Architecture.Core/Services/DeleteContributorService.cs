@@ -27,10 +27,10 @@ public class DeleteContributorService : IDeleteContributorService
   }
 
   /// <summary>
-  /// TODO.
+  /// Deletes a contributor from the database.
   /// </summary>
-  /// <param name="contributorId">TODO LATER.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="contributorId">The id of the contributor being deleted.</param>
+  /// <returns>The result status of deletion.</returns>
   public async Task<Result> DeleteContributor(int contributorId)
   {
     var aggregateToDelete = await _repository.GetByIdAsync(contributorId);

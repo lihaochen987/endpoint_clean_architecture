@@ -3,22 +3,22 @@
 using SharedKernel;
 
 /// <summary>
-/// TODO.
+/// The event that a Contributor has been added to an item.
 /// </summary>
 public class ContributorAddedToItemEvent : DomainEventBase
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="ContributorAddedToItemEvent"/> class.
   /// </summary>
-  /// <param name="item">TODO.</param>
-  /// <param name="contributorId">TODO later.</param>
+  /// <param name="item">The item object being added to the contributor.</param>
+  /// <param name="contributorId">The id of the contributor.</param>
   public ContributorAddedToItemEvent(ToDoItem item, int contributorId)
   {
     Item = item;
     ContributorId = contributorId;
   }
 
-  private int ContributorId { get; set; }
+  private int ContributorId { get; }
 
-  private ToDoItem Item { get; set; }
+  private ToDoItem Item { get; }
 }

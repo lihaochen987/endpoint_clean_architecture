@@ -5,14 +5,14 @@ using Interfaces;
 using Services;
 
 /// <summary>
-/// TODO.
+/// Project hosted dependency injections using autofac.
 /// </summary>
 public class DefaultCoreModule : Module
 {
   /// <summary>
-  /// TODO LATER1.
+  /// Build dependencies into the container.
   /// </summary>
-  /// <param name="builder">TODO LATER2.</param>
+  /// <param name="builder">The container-builder from autofac.</param>
   protected override void Load(ContainerBuilder builder)
   {
     builder.RegisterType<ToDoItemSearchService>()

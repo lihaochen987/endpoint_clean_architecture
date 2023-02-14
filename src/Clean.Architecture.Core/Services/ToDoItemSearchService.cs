@@ -23,11 +23,11 @@ public class ToDoItemSearchService : IToDoItemSearchService
   }
 
   /// <summary>
-  /// TODO.
+  /// Gets all incomplete items.
   /// </summary>
-  /// <param name="projectId">TODO LATER.</param>
-  /// <param name="searchString">TODO LATER2.</param>
-  /// <returns>TODO LATER3.</returns>
+  /// <param name="projectId">The id of the project.</param>
+  /// <param name="searchString">The search string of hte items the method gets.</param>
+  /// <returns>The result status of the Get method.</returns>
   public async Task<Result<List<ToDoItem>>> GetAllIncompleteItemsAsync(int projectId, string searchString)
   {
     if (string.IsNullOrEmpty(searchString))
@@ -59,15 +59,15 @@ public class ToDoItemSearchService : IToDoItemSearchService
     catch (Exception ex)
     {
       // TODO: Log details here
-      return Result<List<ToDoItem>>.Error(new[] { ex.Message });
+      return Result<List<ToDoItem>>.Error(ex.Message);
     }
   }
 
   /// <summary>
-  /// TODO.
+  /// Get the next incomplete item.
   /// </summary>
-  /// <param name="projectId">TODO LATER1.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="projectId">The id of the project.</param>
+  /// <returns>The result status of the Get method.</returns>
   public async Task<Result<ToDoItem>> GetNextIncompleteItemAsync(int projectId)
   {
     var projectSpec = new ProjectByIdWithItemsSpec(projectId);
