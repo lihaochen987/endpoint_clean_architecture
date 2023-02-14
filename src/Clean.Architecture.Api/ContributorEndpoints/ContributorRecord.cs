@@ -1,8 +1,8 @@
 ﻿namespace Clean.Architecture.Web.ContributorEndpoints;
 
 /// <summary>
-/// TODO.
+/// The shared response class of ContributorEndpoints.
 /// </summary>
-/// <param name="id">TODO.</param>
-/// <param name="name">TODO LATER.</param>
+/// <param name="id">The Id of the contributor.</param>
+/// <param name="name">The name of the contributor.</param>
 public record ContributorRecord(int id, string name);

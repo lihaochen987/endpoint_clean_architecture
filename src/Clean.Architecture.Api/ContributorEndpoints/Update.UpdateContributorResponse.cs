@@ -15,7 +15,7 @@ public class UpdateContributorResponse
   }
 
   /// <summary>
-  /// Gets or sets the Contributor.
+  /// Gets the Contributor.
   /// </summary>
-  private ContributorRecord Contributor { get; set; }
+  private ContributorRecord Contributor { get; }
 }

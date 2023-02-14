@@ -25,7 +25,7 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
   /// </summary>
   public override void Configure()
   {
-    Put(CreateContributorRequest.Route);
+    Put(UpdateContributorRequest.Route);
     AllowAnonymous();
     Options(x => x
       .WithTags("ContributorEndpoints"));

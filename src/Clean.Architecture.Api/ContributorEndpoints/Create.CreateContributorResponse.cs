@@ -17,12 +17,12 @@ public class CreateContributorResponse
   }
 
   /// <summary>
-  /// Gets or sets Id of the contributor.
+  /// Gets id of the contributor.
   /// </summary>
-  private int Id { get; set; }
+  private int Id { get; }
 
   /// <summary>
-  /// Gets or sets Name of the contributor.
+  /// Gets name of the contributor.
   /// </summary>
-  private string Name { get; set; }
+  private string Name { get; }
 }
