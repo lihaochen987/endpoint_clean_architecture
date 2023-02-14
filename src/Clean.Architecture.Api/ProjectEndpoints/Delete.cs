@@ -1,17 +1,13 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
-using Ardalis.ApiEndpoints;
 using Core.ProjectAggregate;
 using SharedKernel.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
+using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Project Delete endpoint.
 /// </summary>
-public class Delete : EndpointBaseAsync
-  .WithRequest<DeleteProjectRequest>
-  .WithoutResult
+public class Delete : Endpoint<DeleteProjectRequest>
 {
   private readonly IRepository<Project> _repository;
 
@@ -25,30 +21,32 @@ public class Delete : EndpointBaseAsync
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
-  /// <returns>TODO LATER3.</returns>
-  [HttpDelete(DeleteProjectRequest.Route)]
-  [SwaggerOperation(
-    Summary = "Deletes a Project",
-    Description = "Deletes a Project",
-    OperationId = "Projects.Delete",
-    Tags = new[] { "ProjectEndpoints" })
-  ]
-  public override async Task<ActionResult> HandleAsync(
-    [FromRoute] DeleteProjectRequest request,
-    CancellationToken cancellationToken = new ())
+  public override void Configure()
+  {
+    Post(DeleteProjectRequest.Route);
+    AllowAnonymous();
+    Options(x => x
+      .WithTags("ProjectEndpoints"));
+  }
+
+  /// <summary>
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
+  /// </summary>
+  /// <param name="request">The Project Request Delete contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+  public override async Task HandleAsync(DeleteProjectRequest request, CancellationToken cancellationToken)
   {
     var aggregateToDelete = await _repository.GetByIdAsync(request.ProjectId, cancellationToken);
     if (aggregateToDelete == null)
     {
-      return NotFound();
+      ThrowError("Project not found.");
     }
 
     await _repository.DeleteAsync(aggregateToDelete, cancellationToken);
 
-    return NoContent();
+    await SendNoContentAsync(cancellationToken);
   }
 }

@@ -1,24 +1,24 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Request Contract to the Project Delete endpoint.
 /// </summary>
 public class DeleteProjectRequest
 {
   /// <summary>
-  /// TODO.
+  /// The route of the endpoint.
   /// </summary>
   public const string Route = "/Projects/{ProjectId:int}";
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets or sets id of the project.
   /// </summary>
   public int ProjectId { get; set; }
 
   /// <summary>
-  /// TODO.
+  /// Builds the route of the project for testing purposes.
   /// </summary>
-  /// <param name="projectId">TODO LATER.</param>
-  /// <returns>TODO LATER2.</returns>
+  /// <param name="projectId">The id of the project.</param>
+  /// <returns>The build route associated with the contract request.</returns>
   public static string BuildRoute(int projectId) => Route.Replace("{ProjectId:int}", projectId.ToString());
 }

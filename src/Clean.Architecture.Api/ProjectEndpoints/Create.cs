@@ -28,7 +28,7 @@ public class Create : Endpoint<CreateProjectRequest, CreateProjectResponse>
     Post(CreateProjectRequest.Route);
     AllowAnonymous();
     Options(x => x
-      .WithTags("ContributorEndpoints"));
+      .WithTags("ProjectEndpoints"));
   }
 
   /// <summary>
