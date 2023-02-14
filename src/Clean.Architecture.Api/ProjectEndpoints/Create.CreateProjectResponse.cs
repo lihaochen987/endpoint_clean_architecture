@@ -1,15 +1,15 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Response contract from the Project Create endpoint.
 /// </summary>
 public class CreateProjectResponse
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="CreateProjectResponse"/> class.
   /// </summary>
-  /// <param name="id">TODO LATER.</param>
-  /// <param name="name">TODO LATER2.</param>
+  /// <param name="id">The Id of the project.</param>
+  /// <param name="name">The Name of the project.</param>
   public CreateProjectResponse(int id, string name)
   {
     Id = id;
@@ -17,12 +17,12 @@ public class CreateProjectResponse
   }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets the Id of the project.
   /// </summary>
-  private int Id { get; set; }
+  private int Id { get; }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets the Name of the project.
   /// </summary>
-  private string Name { get; set; }
+  private string Name { get; }
 }

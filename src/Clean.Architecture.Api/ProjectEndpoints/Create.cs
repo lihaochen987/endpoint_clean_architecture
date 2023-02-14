@@ -1,47 +1,47 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
-using Ardalis.ApiEndpoints;
 using Core.ProjectAggregate;
 using SharedKernel.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
+using FastEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Project Create endpoint.
 /// </summary>
-public class Create : EndpointBaseAsync.WithRequest<CreateProjectRequest>.WithActionResult<CreateProjectResponse>
+public class Create : Endpoint<CreateProjectRequest, CreateProjectResponse>
 {
   private readonly IRepository<Project> _repository;
 
   /// <summary>
   /// Initializes a new instance of the <see cref="Create"/> class.
   /// </summary>
-  /// <param name="repository">TODO LATER.</param>
+  /// <param name="repository">The Project repository.</param>
   public Create(IRepository<Project> repository)
   {
     _repository = repository;
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
-  /// <returns>TODO LATER3.</returns>
-  [HttpPost("/Projects")]
-  [SwaggerOperation(
-    Summary = "Creates a new Project",
-    Description = "Creates a new Project",
-    OperationId = "Project.Create",
-    Tags = new[] { "ProjectEndpoints" })
-  ]
-  public override async Task<ActionResult<CreateProjectResponse>> HandleAsync(
-    CreateProjectRequest request,
-    CancellationToken cancellationToken = new ())
+  public override void Configure()
+  {
+    Post(CreateProjectRequest.Route);
+    AllowAnonymous();
+    Options(x => x
+      .WithTags("ContributorEndpoints"));
+  }
+
+  /// <summary>
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
+  /// </summary>
+  /// <param name="request">The Project Request Create contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+  public override async Task HandleAsync(CreateProjectRequest request, CancellationToken cancellationToken)
   {
     if (request.Name == null)
     {
-      return BadRequest();
+      ThrowError("Name is required");
     }
 
     var newProject = new Project(request.Name, PriorityStatus.Backlog);
@@ -50,6 +50,6 @@ public class Create : EndpointBaseAsync.WithRequest<CreateProjectRequest>.WithAc
       id: createdItem.Id,
       name: createdItem.Name);
 
-    return Ok(response);
+    await SendAsync(response, cancellation: cancellationToken);
   }
 }

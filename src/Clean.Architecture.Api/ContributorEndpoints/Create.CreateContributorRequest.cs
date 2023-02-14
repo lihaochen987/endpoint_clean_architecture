@@ -3,7 +3,7 @@ namespace Clean.Architecture.Web.ContributorEndpoints;
 using System.ComponentModel.DataAnnotations;
 
 /// <summary>
-/// The Request DTO to the Contributor Create endpoint.
+/// The Request Contract to the Contributor Create endpoint.
 /// </summary>
 public class CreateContributorRequest
 {

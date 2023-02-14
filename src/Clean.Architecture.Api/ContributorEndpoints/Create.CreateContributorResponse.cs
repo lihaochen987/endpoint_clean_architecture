@@ -1,7 +1,7 @@
 namespace Clean.Architecture.Web.ContributorEndpoints;
 
 /// <summary>
-/// The Response DTO from the Contributor Create endpoint.
+/// The Response contract from the Contributor Create endpoint.
 /// </summary>
 public class CreateContributorResponse
 {

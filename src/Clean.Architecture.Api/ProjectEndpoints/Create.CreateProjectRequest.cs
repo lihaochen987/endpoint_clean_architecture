@@ -2,17 +2,17 @@
 using System.ComponentModel.DataAnnotations;
 
 /// <summary>
-/// TODO.
+/// The Request Contract to the Project Create endpoint.
 /// </summary>
 public class CreateProjectRequest
 {
   /// <summary>
-  /// TODO.
+  /// The route of the endpoint.
   /// </summary>
   public const string Route = "/Projects";
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets or sets the name of the Project.
   /// </summary>
   [Required]
   public string? Name { get; set; }
