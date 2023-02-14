@@ -4,9 +4,9 @@ using Ardalis.Specification.EntityFrameworkCore;
 using SharedKernel.Interfaces;
 
 /// <summary>
-/// TODO.
+/// The base EfRepository class.
 /// </summary>
-/// <typeparam name="T">TODO LATER.</typeparam>
+/// <typeparam name="T">The domain model object.</typeparam>
 public class EfRepository<T> : RepositoryBase<T>, IReadRepository<T>, IRepository<T>
     where T : class, IAggregateRoot
 {

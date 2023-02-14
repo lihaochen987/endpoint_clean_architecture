@@ -12,12 +12,12 @@ using MediatR.Pipeline;
 using Module = Autofac.Module;
 
 /// <summary>
-/// TODO.
+/// Dependency injections using Autofac.
 /// </summary>
 public class DefaultInfrastructureModule : Module
 {
   private readonly bool _isDevelopment;
-  private readonly List<Assembly> _assemblies = new List<Assembly>();
+  private readonly List<Assembly> _assemblies = new ();
 
   /// <summary>
   /// Initializes a new instance of the <see cref="DefaultInfrastructureModule"/> class.
@@ -47,9 +47,9 @@ public class DefaultInfrastructureModule : Module
   }
 
   /// <summary>
-  /// TODO.
+  /// Registers the dependencies based on the environment.
   /// </summary>
-  /// <param name="builder">TODO LATER.</param>
+  /// <param name="builder">The container-builder from autofac.</param>
   protected override void Load(ContainerBuilder builder)
   {
     if (_isDevelopment)

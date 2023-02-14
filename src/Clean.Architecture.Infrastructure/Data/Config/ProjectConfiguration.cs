@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 /// <summary>
-/// TODO LATER.
+/// Configures the properties of the Project in the database.
 /// </summary>
 public class ProjectConfiguration : IEntityTypeConfiguration<Project>
 {
   /// <summary>
-  /// TODO LATER2.
+  /// Defines the properties of the Project object in the database.
   /// </summary>
-  /// <param name="builder">TODO LATER3.</param>
+  /// <param name="builder">The builder which builds the entity.</param>
   public void Configure(EntityTypeBuilder<Project> builder)
   {
     builder.Property(p => p.Name)

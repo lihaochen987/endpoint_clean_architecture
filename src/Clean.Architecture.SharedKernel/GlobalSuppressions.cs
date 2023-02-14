@@ -5,6 +5,18 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header", Justification = "Do we need copyright headers?")]
-[assembly: SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1101:Prefix local calls with this", Justification = "Not a popular rule...")]
-[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1309:Field names should not begin with underscore", Justification = "Because suppressing SA1101")]
+[assembly:
+  SuppressMessage(
+    "StyleCop.CSharp.DocumentationRules",
+    "SA1633:File should have header",
+    Justification = "Do we need copyright headers?")]
+[assembly:
+  SuppressMessage(
+    "StyleCop.CSharp.ReadabilityRules",
+    "SA1101:Prefix local calls with this",
+    Justification = "Not a popular rule...")]
+[assembly:
+  SuppressMessage(
+    "StyleCop.CSharp.NamingRules",
+    "SA1309:Field names should not begin with underscore",
+    Justification = "Because suppressing SA1101")]

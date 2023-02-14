@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 /// <summary>
-/// TODO LATER.
+/// Configures the properties of the To-do item in the database.
 /// </summary>
 public class ToDoConfiguration : IEntityTypeConfiguration<ToDoItem>
 {
   /// <summary>
-  /// TODO LATER1.
+  /// Defines the properties of the To-do item object in the database.
   /// </summary>
-  /// <param name="builder">TODO LATER2.</param>
+  /// <param name="builder">The builder which builds the entity.</param>
   public void Configure(EntityTypeBuilder<ToDoItem> builder)
   {
     builder.Property(t => t.Title)

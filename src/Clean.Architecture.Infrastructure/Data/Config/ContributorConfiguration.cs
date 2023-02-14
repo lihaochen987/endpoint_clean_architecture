@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 /// <summary>
-/// TODO LATER.
+/// Configures the properties of the Contributor in the database.
 /// </summary>
 public class ContributorConfiguration : IEntityTypeConfiguration<Contributor>
 {
   /// <summary>
-  /// TODO.
+  /// Defines the properties of the Contributor object in the database.
   /// </summary>
-  /// <param name="builder">TODO LATER2.</param>
+  /// <param name="builder">The builder which builds the entity.</param>
   public void Configure(EntityTypeBuilder<Contributor> builder)
   {
     builder.Property(p => p.Name)

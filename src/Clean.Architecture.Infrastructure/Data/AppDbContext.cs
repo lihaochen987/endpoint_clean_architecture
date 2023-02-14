@@ -8,7 +8,7 @@ using SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 /// <summary>
-/// TODO.
+/// Defines the database context.
 /// </summary>
 public class AppDbContext : DbContext
 {

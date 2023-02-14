@@ -5,7 +5,7 @@ using Interfaces;
 using Services;
 
 /// <summary>
-/// Project hosted dependency injections using autofac.
+/// Dependency injections using autofac.
 /// </summary>
 public class DefaultCoreModule : Module
 {
