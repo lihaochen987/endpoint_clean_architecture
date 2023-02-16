@@ -47,6 +47,20 @@ public class NoOpMediator : IMediator
   /// <summary>
   /// TODO.
   /// </summary>
+  /// <param name="request">TODO 1.</param>
+  /// <param name="cancellationToken">TODO 2.</param>
+  /// <typeparam name="TRequest">TODO 3.</typeparam>
+  /// <returns>TODO 4.</returns>
+  /// <exception cref="NotImplementedException">TODO 5.</exception>
+  public Task Send<TRequest>(TRequest request, CancellationToken cancellationToken = default)
+    where TRequest : IRequest
+  {
+    throw new NotImplementedException();
+  }
+
+  /// <summary>
+  /// TODO.
+  /// </summary>
   /// <param name="request">TODO LATER.</param>
   /// <param name="cancellationToken">TODO LATER2.</param>
   /// <returns>TODO LATER3.</returns>
@@ -63,8 +77,8 @@ public class NoOpMediator : IMediator
   /// <typeparam name="TResponse">TODO LATER3.</typeparam>
   /// <returns>TODO LATER4.</returns>
   public async IAsyncEnumerable<TResponse> CreateStream<TResponse>(
-      IStreamRequest<TResponse> request,
-      [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    IStreamRequest<TResponse> request,
+    [EnumeratorCancellation] CancellationToken cancellationToken = default)
   {
     await Task.CompletedTask;
     yield break;
@@ -77,8 +91,8 @@ public class NoOpMediator : IMediator
   /// <param name="cancellationToken">TODO LATER3.</param>
   /// <returns>TODO LATER4.</returns>
   public async IAsyncEnumerable<object?> CreateStream(
-      object request,
-      [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    object request,
+    [EnumeratorCancellation] CancellationToken cancellationToken = default)
   {
     await Task.CompletedTask;
     yield break;
