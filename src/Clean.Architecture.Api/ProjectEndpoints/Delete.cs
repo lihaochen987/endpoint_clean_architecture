@@ -25,7 +25,7 @@ public class Delete : Endpoint<DeleteProjectRequest>
   /// </summary>
   public override void Configure()
   {
-    Post(DeleteProjectRequest.Route);
+    Delete(DeleteProjectRequest.Route);
     AllowAnonymous();
     Options(x => x
       .WithTags("ProjectEndpoints"));

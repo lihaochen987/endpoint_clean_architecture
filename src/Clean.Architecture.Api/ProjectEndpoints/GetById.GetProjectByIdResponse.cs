@@ -1,16 +1,16 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 /// <summary>
-/// TODO.
+/// The Response contract from the Project GetById endpoint.
 /// </summary>
 public class GetProjectByIdResponse
 {
   /// <summary>
   /// Initializes a new instance of the <see cref="GetProjectByIdResponse"/> class.
   /// </summary>
-  /// <param name="id">TODO LATER.</param>
-  /// <param name="name">TODO LATER2.</param>
-  /// <param name="items">TODO LATER3.</param>
+  /// <param name="id">The id of the project.</param>
+  /// <param name="name">The name of the project.</param>
+  /// <param name="items">The to-do items associated with the project.</param>
   public GetProjectByIdResponse(int id, string name, List<ToDoItemRecord> items)
   {
     Id = id;
@@ -19,17 +19,17 @@ public class GetProjectByIdResponse
   }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets the Id of the project.
   /// </summary>
-  public int Id { get; set; }
+  public int Id { get; }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets the Name of the project.
   /// </summary>
-  public string Name { get; set; }
+  public string Name { get; }
 
   /// <summary>
-  /// Gets or sets tODO.
+  /// Gets to-do items associated with the project.
   /// </summary>
-  public List<ToDoItemRecord> Items { get; set; }
+  public List<ToDoItemRecord> Items { get; }
 }

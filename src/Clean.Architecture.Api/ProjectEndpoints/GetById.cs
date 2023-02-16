@@ -1,18 +1,14 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
-using Ardalis.ApiEndpoints;
+using FastEndpoints;
 using Core.ProjectAggregate;
 using Core.ProjectAggregate.Specifications;
 using SharedKernel.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
 /// <summary>
-/// TODO.
+/// The Project GetById endpoint.
 /// </summary>
-public class GetById : EndpointBaseAsync
-  .WithRequest<GetProjectByIdRequest>
-  .WithActionResult<GetProjectByIdResponse>
+public class GetById : Endpoint<GetProjectByIdRequest, GetProjectByIdResponse>
 {
   private readonly IRepository<Project> _repository;
 
@@ -26,27 +22,30 @@ public class GetById : EndpointBaseAsync
   }
 
   /// <summary>
-  /// TODO.
+  /// Overrides the FastApi Configure method and sets the route of the endpoint.
   /// </summary>
-  /// <param name="request">TODO LATER.</param>
-  /// <param name="cancellationToken">TODO LATER2.</param>
-  /// <returns>TODO LATER3.</returns>
-  [HttpGet(GetProjectByIdRequest.Route)]
-  [SwaggerOperation(
-    Summary = "Gets a single Project",
-    Description = "Gets a single Project by Id",
-    OperationId = "Projects.GetById",
-    Tags = new[] { "ProjectEndpoints" })
-  ]
-  public override async Task<ActionResult<GetProjectByIdResponse>> HandleAsync(
-    [FromRoute] GetProjectByIdRequest request,
-    CancellationToken cancellationToken = new ())
+  public override void Configure()
+  {
+    Get(GetProjectByIdRequest.Route);
+    AllowAnonymous();
+    Options(x => x
+      .WithTags("ProjectEndpoints"));
+  }
+
+  /// <summary>
+  /// Overrides the FastApi HandleAsync method and manipulates the business logic of the objects.
+  /// </summary>
+  /// <param name="request">The Project Request GetById contract object.</param>
+  /// <param name="cancellationToken">The cancellation token.</param>
+  /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+  public override async Task HandleAsync(GetProjectByIdRequest request, CancellationToken cancellationToken)
   {
     var spec = new ProjectByIdWithItemsSpec(request.ProjectId);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
     if (entity == null)
     {
-      return NotFound();
+      ThrowError("Project not found.");
+      await SendNotFoundAsync(cancellationToken);
     }
 
     var response = new GetProjectByIdResponse(
@@ -55,6 +54,6 @@ public class GetById : EndpointBaseAsync
       items: entity.Items.Select(item => new ToDoItemRecord(item.Id, item.Title, item.Description, item.IsDone))
         .ToList());
 
-    return Ok(response);
+    await SendAsync(response, cancellation: cancellationToken);
   }
 }
