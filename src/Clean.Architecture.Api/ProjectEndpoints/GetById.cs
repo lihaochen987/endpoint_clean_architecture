@@ -44,8 +44,8 @@ public class GetById : Endpoint<GetProjectByIdRequest, GetProjectByIdResponse>
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
     if (entity == null)
     {
-      ThrowError("Project not found.");
       await SendNotFoundAsync(cancellationToken);
+      return;
     }
 
     var response = new GetProjectByIdResponse(

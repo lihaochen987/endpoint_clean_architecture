@@ -37,14 +37,14 @@ public class ProjectGetById : IClassFixture<CustomWebApplicationFactory<WebMarke
     Assert.Equal(3, result.Items.Count);
   }
 
-  // /// <summary>
-  // /// TODO.
-  // /// </summary>
-  // /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-  // [Fact]
-  // public async Task ReturnsNotFoundGivenId0()
-  // {
-  //   string route = GetProjectByIdRequest.BuildRoute(0);
-  //   _ = await _client.GetAndEnsureNotFoundAsync(route);
-  // }
+  /// <summary>
+  /// TODO.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+  [Fact]
+  public async Task ReturnsNotFoundGivenId0()
+  {
+    string route = GetProjectByIdRequest.BuildRoute(0);
+    _ = await _client.GetAndEnsureNotFoundAsync(route);
+  }
 }
