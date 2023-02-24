@@ -8,7 +8,7 @@ using Infrastructure.Data;
 using Shouldly;
 
 /// <summary>
-/// TODO.
+/// Tests relating to the ListContributors endpoint.
 /// </summary>
 [Collection("Sequential")]
 public class ContributorListTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
@@ -18,14 +18,14 @@ public class ContributorListTests : IClassFixture<CustomWebApplicationFactory<We
   /// <summary>
   /// Initializes a new instance of the <see cref="ContributorListTests"/> class.
   /// </summary>
-  /// <param name="factory">TODO.</param>
+  /// <param name="factory">The client used for testing purposes.</param>
   public ContributorListTests(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
 
   /// <summary>
-  /// TODO.
+  /// Ensures Contributors are returned from the seeded database.
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
