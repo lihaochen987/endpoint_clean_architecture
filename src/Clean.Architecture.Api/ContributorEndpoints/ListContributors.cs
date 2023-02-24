@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Contributor List endpoint.
 /// </summary>
-public class List : EndpointWithoutRequest<ContributorListResponse>
+public class ListContributors : EndpointWithoutRequest<ContributorListResponse>
 {
   private readonly IRepository<Contributor> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="List"/> class.
+  /// Initializes a new instance of the <see cref="ListContributors"/> class.
   /// </summary>
   /// <param name="repository">The Contributor repository.</param>
-  public List(IRepository<Contributor> repository)
+  public ListContributors(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
