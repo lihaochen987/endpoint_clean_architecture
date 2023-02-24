@@ -11,15 +11,15 @@ using System.Net;
 /// Tests relating to the CreateContributor endpoint.
 /// </summary>
 [Collection("Sequential")]
-public class ContributorCreateTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
+public class CreateContributorTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="ContributorCreateTests"/> class.
+  /// Initializes a new instance of the <see cref="CreateContributorTests"/> class.
   /// </summary>
   /// <param name="factory">The client used for testing purposes.</param>
-  public ContributorCreateTests(CustomWebApplicationFactory<WebMarker> factory)
+  public CreateContributorTests(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }

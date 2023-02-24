@@ -11,15 +11,15 @@ using Shouldly;
 /// Tests relating to the GetContributorById endpoint.
 /// </summary>
 [Collection("Sequential")]
-public class ContributorGetByIdTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
+public class GetContributorByIdTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="ContributorGetByIdTests"/> class.
+  /// Initializes a new instance of the <see cref="GetContributorByIdTests"/> class.
   /// </summary>
   /// <param name="factory">The client used for testing purposes.</param>
-  public ContributorGetByIdTests(CustomWebApplicationFactory<WebMarker> factory)
+  public GetContributorByIdTests(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
