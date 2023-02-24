@@ -29,7 +29,7 @@ public class GetContributorByIdTests : IClassFixture<CustomWebApplicationFactory
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
-  public async Task ReturnsSeedContributorGivenId1()
+  public async Task ExistingContributorIsRetrieved()
   {
     // Arrange
     const int seededId = 1;
@@ -48,7 +48,7 @@ public class GetContributorByIdTests : IClassFixture<CustomWebApplicationFactory
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
-  public async Task ReturnsNotFoundGivenId0()
+  public async Task NonExistingContributorReturnsBadRequest()
   {
     // Arrange
     const int invalidSeedId = 0;

@@ -29,7 +29,7 @@ public class ListContributorsTests : IClassFixture<CustomWebApplicationFactory<W
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
-  public async Task ReturnsTwoContributors()
+  public async Task AllContributorsAreListed()
   {
     // Act
     var result = await _client.GetAndDeserializeAsync<ContributorListResponse>("/Contributors");

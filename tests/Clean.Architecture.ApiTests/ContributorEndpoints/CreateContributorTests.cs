@@ -29,7 +29,7 @@ public class CreateContributorTests : IClassFixture<CustomWebApplicationFactory<
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
   [Fact]
-  public async Task CreatesAndPersistsInDatabase()
+  public async Task ValidContributorIsPersisted()
   {
     // Arrange
     var request = new CreateContributorRequest { Name = "HaoChen Li" };
@@ -49,7 +49,7 @@ public class CreateContributorTests : IClassFixture<CustomWebApplicationFactory<
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
-  public async Task NullNameThrowsError()
+  public async Task NullNameReturnsBadRequest()
   {
     // Arrange
     var request = new CreateContributorRequest { Name = null };
