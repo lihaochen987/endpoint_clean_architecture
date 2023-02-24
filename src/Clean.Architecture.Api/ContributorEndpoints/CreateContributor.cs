@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Contributor Create endpoint.
 /// </summary>
-public class Create : Endpoint<CreateContributorRequest, CreateContributorResponse>
+public class CreateContributor : Endpoint<CreateContributorRequest, CreateContributorResponse>
 {
   private readonly IRepository<Contributor> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="Create"/> class.
+  /// Initializes a new instance of the <see cref="CreateContributor"/> class.
   /// </summary>
   /// <param name="repository">The Contributor repository.</param>
-  public Create(IRepository<Contributor> repository)
+  public CreateContributor(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
@@ -51,11 +51,10 @@ public class Create : Endpoint<CreateContributorRequest, CreateContributorRespon
 
     // Add Domain Model object to the database.
     var createdItem = await _repository.AddAsync(newContributor, cancellationToken);
+    Logger.LogInformation("Contributor created, 'Name' = {NewContributorName}", newContributor.Name);
 
     // Return a domain model response contract.
-    var response = new CreateContributorResponse(
-      id: createdItem.Id,
-      name: createdItem.Name);
+    var response = new CreateContributorResponse { Id = createdItem.Id, Name = createdItem.Name };
 
     await SendAsync(response, cancellation: cancellationToken);
   }

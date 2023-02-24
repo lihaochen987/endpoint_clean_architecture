@@ -6,23 +6,12 @@ namespace Clean.Architecture.Web.ContributorEndpoints;
 public class CreateContributorResponse
 {
   /// <summary>
-  /// Initializes a new instance of the <see cref="CreateContributorResponse"/> class.
+  /// Gets or sets id of the contributor.
   /// </summary>
-  /// <param name="id">The Id of the returned Contributor.</param>
-  /// <param name="name">The Name of the returned Contributor.</param>
-  public CreateContributorResponse(int id, string name)
-  {
-    Id = id;
-    Name = name;
-  }
+  public int Id { get; set; }
 
   /// <summary>
-  /// Gets id of the contributor.
+  /// Gets or sets name of the contributor.
   /// </summary>
-  private int Id { get; }
-
-  /// <summary>
-  /// Gets name of the contributor.
-  /// </summary>
-  private string Name { get; }
+  public string? Name { get; set; }
 }
