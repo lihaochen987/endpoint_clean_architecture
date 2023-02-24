@@ -8,15 +8,15 @@ using FastEndpoints;
 /// <summary>
 /// The Contributor GetById endpoint.
 /// </summary>
-public class GetById : Endpoint<GetContributorByIdRequest, ContributorRecord>
+public class GetContributorById : Endpoint<GetContributorByIdRequest, ContributorRecord>
 {
   private readonly IRepository<Contributor> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="GetById"/> class.
+  /// Initializes a new instance of the <see cref="GetContributorById"/> class.
   /// </summary>
   /// <param name="repository">The Contributor Repository.</param>
-  public GetById(IRepository<Contributor> repository)
+  public GetContributorById(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
