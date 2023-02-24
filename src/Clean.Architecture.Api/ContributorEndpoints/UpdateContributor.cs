@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Contributor Update endpoint.
 /// </summary>
-public class Update : Endpoint<UpdateContributorRequest, UpdateContributorResponse>
+public class UpdateContributor : Endpoint<UpdateContributorRequest, UpdateContributorResponse>
 {
   private readonly IRepository<Contributor> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="Update"/> class.
+  /// Initializes a new instance of the <see cref="UpdateContributor"/> class.
   /// </summary>
   /// <param name="repository">The Contributor repository.</param>
-  public Update(IRepository<Contributor> repository)
+  public UpdateContributor(IRepository<Contributor> repository)
   {
     _repository = repository;
   }
@@ -57,8 +57,8 @@ public class Update : Endpoint<UpdateContributorRequest, UpdateContributorRespon
 
     await _repository.UpdateAsync(existingContributor, cancellationToken);
 
-    var response = new UpdateContributorResponse(
-      contributor: new ContributorRecord(existingContributor.Id, existingContributor.Name));
+    var contributor = new ContributorRecord(existingContributor.Id, existingContributor.Name);
+    var response = new UpdateContributorResponse { Contributor = contributor };
 
     await SendAsync(response, cancellation: cancellationToken);
   }
