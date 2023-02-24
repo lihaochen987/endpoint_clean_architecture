@@ -23,12 +23,12 @@ public static class AppDbContextSeed
   /// <summary>
   /// A Project object.
   /// </summary>
-  public static readonly Project TestProject1 = new Project("Test Project", PriorityStatus.Backlog);
+  public static readonly Project TestProject1 = new ("Test Project", PriorityStatus.Backlog);
 
   /// <summary>
   /// A To-do item object.
   /// </summary>
-  public static readonly ToDoItem ToDoItem1 = new ToDoItem("Get Sample Working", "Try to get the sample to build.");
+  public static readonly ToDoItem ToDoItem1 = new ("Get Sample Working", "Try to get the sample to build.");
 
   /// <summary>
   /// A To-do item object.
@@ -41,7 +41,7 @@ public static class AppDbContextSeed
   /// <summary>
   /// A To-do item object.
   /// </summary>
-  public static readonly ToDoItem ToDoItem3 = new ToDoItem(
+  public static readonly ToDoItem ToDoItem3 = new (
     "Run and Review Tests",
     "Make sure all the tests run and review what they are doing.");
 
