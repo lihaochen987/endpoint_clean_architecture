@@ -19,10 +19,10 @@ public class CreateProjectResponse
   /// <summary>
   /// Gets the Id of the project.
   /// </summary>
-  private int Id { get; }
+  public int Id { get; }
 
   /// <summary>
   /// Gets the Name of the project.
   /// </summary>
-  private string Name { get; }
+  public string Name { get; }
 }

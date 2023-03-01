@@ -7,11 +7,6 @@ using System.ComponentModel.DataAnnotations;
 public class CreateProjectRequest
 {
   /// <summary>
-  /// The route of the endpoint.
-  /// </summary>
-  public const string Route = "/Projects";
-
-  /// <summary>
   /// Gets or sets the name of the Project.
   /// </summary>
   [Required]

@@ -25,7 +25,7 @@ public class CreateProject : Endpoint<CreateProjectRequest, CreateProjectRespons
   /// </summary>
   public override void Configure()
   {
-    Post(CreateProjectRequest.Route);
+    Post("/Projects");
     AllowAnonymous();
     Options(x => x
       .WithTags("ProjectEndpoints"));
