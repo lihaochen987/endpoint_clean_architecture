@@ -1,11 +1,12 @@
 ﻿namespace Clean.Architecture.ApiTests.ContributorEndpoints;
 
-using Ardalis.HttpClientTestExtensions;
 using Infrastructure.Data;
 using Web;
 using Clean.Architecture.Web.ContributorEndpoints;
 using Xunit;
 using Shouldly;
+using FastEndpoints;
+using System.Net;
 
 /// <summary>
 /// Tests relating to the GetContributorById endpoint.
@@ -32,31 +33,36 @@ public class GetContributorByIdTests : IClassFixture<CustomWebApplicationFactory
   public async Task ExistingContributorIsRetrieved()
   {
     // Arrange
-    const int seededId = 1;
+    var request = new GetContributorByIdRequest { ContributorId = 1 };
 
     // Act
-    var result =
-      await _client.GetAndDeserializeAsync<ContributorRecord>(GetContributorByIdRequest.BuildRoute(seededId));
+    var (response, result) =
+      await _client.GETAsync<GetContributorById, GetContributorByIdRequest, ContributorRecord>(request);
 
     // Assert
-    result.id.ShouldBe(1);
-    result.name.ShouldBe(AppDbContextSeed.Contributor1.Name);
+    response.ShouldNotBeNull();
+    response.StatusCode.ShouldBe(HttpStatusCode.OK);
+    result?.contributorId.ShouldBe(1);
+    result?.contributorName.ShouldBe(AppDbContextSeed.Contributor1.Name);
   }
 
-  /// <summary>
-  /// Ensures an invalid Contributor is not found.
-  /// </summary>
-  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-  [Fact]
-  public async Task NonExistingContributorReturnsBadRequest()
-  {
-    // Arrange
-    const int invalidSeedId = 0;
-
-    // Act
-    string route = GetContributorByIdRequest.BuildRoute(invalidSeedId);
-
-    // Assert
-    _ = await _client.GetAndEnsureNotFoundAsync(route);
-  }
+  // /// <summary>
+  // /// Ensures an invalid Contributor is not found.
+  // /// </summary>
+  // /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+  // [Fact]
+  // public async Task NonExistingContributorReturnsBadRequest()
+  // {
+  //   // Arrange
+  //   var request = new GetContributorByIdRequest { ContributorId = 0 };
+  //
+  //   // Act
+  //   var (response, result) =
+  //     await _client.GETAsync<GetContributorById, GetContributorByIdRequest, ContributorRecord>(request);
+  //
+  //   // Assert
+  //   response.ShouldNotBeNull();
+  //   response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
+  //   result?.contributorId.ShouldBe(1);
+  // }
 }

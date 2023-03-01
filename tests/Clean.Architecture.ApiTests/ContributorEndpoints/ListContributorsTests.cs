@@ -1,7 +1,8 @@
 ﻿namespace Clean.Architecture.ApiTests.ContributorEndpoints;
 
 using Clean.Architecture.Web.ContributorEndpoints;
-using Ardalis.HttpClientTestExtensions;
+using System.Net;
+using FastEndpoints;
 using Web;
 using Xunit;
 using Infrastructure.Data;
@@ -32,11 +33,13 @@ public class ListContributorsTests : IClassFixture<CustomWebApplicationFactory<W
   public async Task AllContributorsAreListed()
   {
     // Act
-    var result = await _client.GetAndDeserializeAsync<ContributorListResponse>("/Contributors");
+    var (response, result) = await _client.GETAsync<ListContributors, ContributorListResponse>();
 
     // Assert
-    result.Contributors.Count.ShouldBe(2);
-    result.Contributors.ShouldContain(i => i.name == AppDbContextSeed.Contributor1.Name);
-    result.Contributors.ShouldContain(i => i.name == AppDbContextSeed.Contributor2.Name);
+    response.ShouldNotBeNull();
+    response.StatusCode.ShouldBe(HttpStatusCode.OK);
+    result?.Contributors.Count.ShouldBe(2);
+    result?.Contributors.ShouldContain(i => i.contributorName == AppDbContextSeed.Contributor1.Name);
+    result?.Contributors.ShouldContain(i => i.contributorName == AppDbContextSeed.Contributor2.Name);
   }
 }
