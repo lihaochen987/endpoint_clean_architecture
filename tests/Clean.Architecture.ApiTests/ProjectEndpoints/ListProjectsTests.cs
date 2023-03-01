@@ -5,9 +5,10 @@ using Web;
 using Xunit;
 using Infrastructure.Data;
 using Clean.Architecture.Web.ProjectEndpoints;
+using Shouldly;
 
 /// <summary>
-/// TODO.
+/// Tests relating to the ListProjects endpoint.
 /// </summary>
 [Collection("Sequential")]
 public class ListProjectsTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
@@ -17,22 +18,24 @@ public class ListProjectsTests : IClassFixture<CustomWebApplicationFactory<WebMa
   /// <summary>
   /// Initializes a new instance of the <see cref="ListProjectsTests"/> class.
   /// </summary>
-  /// <param name="factory">TODO.</param>
+  /// <param name="factory">The client used for testing purposes.</param>
   public ListProjectsTests(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
 
   /// <summary>
-  /// TODO.
+  /// Ensures existing projects are returned.
   /// </summary>
   /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
   [Fact]
-  public async Task ReturnsOneProject()
+  public async Task ReturnsProjects()
   {
+    // Act
     var result = await _client.GetAndDeserializeAsync<ProjectListResponse>("/Projects");
 
-    Assert.Single(result.Projects);
-    Assert.Contains(result.Projects, i => i.projectName == AppDbContextSeed.TestProject1.Name);
+    // Assert
+    result.Projects.Count.ShouldBe(1);
+    result.Projects.ShouldContain(new ProjectRecord(AppDbContextSeed.TestProject1.Id, AppDbContextSeed.TestProject1.Name));
   }
 }
