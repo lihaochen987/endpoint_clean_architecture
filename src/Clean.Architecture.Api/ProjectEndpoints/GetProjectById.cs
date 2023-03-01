@@ -26,7 +26,7 @@ public class GetProjectById : Endpoint<GetProjectByIdRequest, GetProjectByIdResp
   /// </summary>
   public override void Configure()
   {
-    Get(GetProjectByIdRequest.Route);
+    Get("/Projects/{int})");
     AllowAnonymous();
     Options(x => x
       .WithTags("ProjectEndpoints"));

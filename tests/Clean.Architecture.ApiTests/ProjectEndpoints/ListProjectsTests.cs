@@ -10,15 +10,15 @@ using Clean.Architecture.Web.ProjectEndpoints;
 /// TODO.
 /// </summary>
 [Collection("Sequential")]
-public class ProjectList : IClassFixture<CustomWebApplicationFactory<WebMarker>>
+public class ListProjectsTests : IClassFixture<CustomWebApplicationFactory<WebMarker>>
 {
   private readonly HttpClient _client;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="ProjectList"/> class.
+  /// Initializes a new instance of the <see cref="ListProjectsTests"/> class.
   /// </summary>
   /// <param name="factory">TODO.</param>
-  public ProjectList(CustomWebApplicationFactory<WebMarker> factory)
+  public ListProjectsTests(CustomWebApplicationFactory<WebMarker> factory)
   {
     _client = factory.CreateClient();
   }
