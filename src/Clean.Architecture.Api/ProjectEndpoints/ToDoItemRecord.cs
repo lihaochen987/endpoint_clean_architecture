@@ -1,10 +1,10 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 /// <summary>
-/// TODO.
+/// The shared response class of to-do items.
 /// </summary>
-/// <param name="id">TODO LATER.</param>
-/// <param name="title">TODO LATER 2.</param>
-/// <param name="description">TODO LATER3.</param>
-/// <param name="isDone">TODO LATER4.</param>
-public record ToDoItemRecord(int id, string title, string description, bool isDone);
+/// <param name="todoItemId">The Id of the to-do item.</param>
+/// <param name="todoItemTitle">The Title of the to-do item.</param>
+/// <param name="todoItemDescription">The Description of the to-do item.</param>
+/// <param name="todoItemIsDone">The status indicating whether the to-do item is done.</param>
+public record ToDoItemRecord(int todoItemId, string todoItemTitle, string todoItemDescription, bool todoItemIsDone);

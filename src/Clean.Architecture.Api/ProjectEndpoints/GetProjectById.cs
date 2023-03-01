@@ -8,15 +8,15 @@ using SharedKernel.Interfaces;
 /// <summary>
 /// The Project GetById endpoint.
 /// </summary>
-public class GetById : Endpoint<GetProjectByIdRequest, GetProjectByIdResponse>
+public class GetProjectById : Endpoint<GetProjectByIdRequest, GetProjectByIdResponse>
 {
   private readonly IRepository<Project> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="GetById"/> class.
+  /// Initializes a new instance of the <see cref="GetProjectById"/> class.
   /// </summary>
   /// <param name="repository">TODO LATER.</param>
-  public GetById(IRepository<Project> repository)
+  public GetProjectById(IRepository<Project> repository)
   {
     _repository = repository;
   }

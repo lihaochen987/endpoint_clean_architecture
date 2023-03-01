@@ -1,8 +1,8 @@
 ﻿namespace Clean.Architecture.Web.ProjectEndpoints;
 
 /// <summary>
-/// TODO.
+/// The shared response class of Project endpoints.
 /// </summary>
-/// <param name="id">TODO LATER.</param>
-/// <param name="name">TODO LATER2.</param>
-public record ProjectRecord(int id, string name);
+/// <param name="projectId">The Id of the project.</param>
+/// <param name="projectName">The Name of the project.</param>
+public record ProjectRecord(int projectId, string projectName);

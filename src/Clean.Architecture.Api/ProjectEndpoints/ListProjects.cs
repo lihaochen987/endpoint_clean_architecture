@@ -9,17 +9,17 @@ using Swashbuckle.AspNetCore.Annotations;
 /// <summary>
 /// TODO.
 /// </summary>
-public class List : EndpointBaseAsync
+public class ListProjects : EndpointBaseAsync
   .WithoutRequest
   .WithActionResult<ProjectListResponse>
 {
   private readonly IReadRepository<Project> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="List"/> class.
+  /// Initializes a new instance of the <see cref="ListProjects"/> class.
   /// </summary>
   /// <param name="repository">TODO LATER.</param>
-  public List(IReadRepository<Project> repository)
+  public ListProjects(IReadRepository<Project> repository)
   {
     _repository = repository;
   }

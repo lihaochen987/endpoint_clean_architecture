@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Project Delete endpoint.
 /// </summary>
-public class Delete : Endpoint<DeleteProjectRequest>
+public class DeleteProject : Endpoint<DeleteProjectRequest>
 {
   private readonly IRepository<Project> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="Delete"/> class.
+  /// Initializes a new instance of the <see cref="DeleteProject"/> class.
   /// </summary>
   /// <param name="repository">TODO LATER.</param>
-  public Delete(IRepository<Project> repository)
+  public DeleteProject(IRepository<Project> repository)
   {
     _repository = repository;
   }

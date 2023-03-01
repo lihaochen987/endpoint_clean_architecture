@@ -8,17 +8,17 @@ using Swashbuckle.AspNetCore.Annotations;
 /// <summary>
 /// TODO.
 /// </summary>
-public class ListIncomplete : EndpointBaseAsync
+public class ListIncompleteProjects : EndpointBaseAsync
   .WithRequest<ListIncompleteRequest>
   .WithActionResult<ListIncompleteResponse>
 {
   private readonly IToDoItemSearchService _searchService;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="ListIncomplete"/> class.
+  /// Initializes a new instance of the <see cref="ListIncompleteProjects"/> class.
   /// </summary>
   /// <param name="searchService">TODO LATER2.</param>
-  public ListIncomplete(IToDoItemSearchService searchService)
+  public ListIncompleteProjects(IToDoItemSearchService searchService)
   {
     _searchService = searchService;
   }

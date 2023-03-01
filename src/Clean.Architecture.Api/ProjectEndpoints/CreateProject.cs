@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Project Create endpoint.
 /// </summary>
-public class Create : Endpoint<CreateProjectRequest, CreateProjectResponse>
+public class CreateProject : Endpoint<CreateProjectRequest, CreateProjectResponse>
 {
   private readonly IRepository<Project> _repository;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="Create"/> class.
+  /// Initializes a new instance of the <see cref="CreateProject"/> class.
   /// </summary>
   /// <param name="repository">The Project repository.</param>
-  public Create(IRepository<Project> repository)
+  public CreateProject(IRepository<Project> repository)
   {
     _repository = repository;
   }
