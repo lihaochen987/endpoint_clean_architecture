@@ -8,11 +8,6 @@ using System.ComponentModel.DataAnnotations;
 public class UpdateContributorRequest
 {
   /// <summary>
-  /// The route of the endpoint.
-  /// </summary>
-  public const string Route = "/Contributors";
-
-  /// <summary>
   /// Gets or sets the Id of the Contributor.
   /// </summary>
   [Required]

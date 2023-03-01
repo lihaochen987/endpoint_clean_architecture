@@ -26,7 +26,7 @@ public class GetContributorById : Endpoint<GetContributorByIdRequest, Contributo
   /// </summary>
   public override void Configure()
   {
-    Get(GetContributorByIdRequest.Route);
+    Get("/Contributors/{int}");
     AllowAnonymous();
     Options(x => x
       .WithTags("ContributorEndpoints"));
@@ -50,7 +50,7 @@ public class GetContributorById : Endpoint<GetContributorByIdRequest, Contributo
       return;
     }
 
-    var response = new ContributorRecord(entity.Id, entity.Name);
+    var response = new ContributorRecord(contributorId: entity.Id, contributorName: entity.Name);
 
     await SendAsync(response, cancellation: cancellationToken);
   }

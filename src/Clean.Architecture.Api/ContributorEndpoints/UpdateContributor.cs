@@ -25,7 +25,7 @@ public class UpdateContributor : Endpoint<UpdateContributorRequest, UpdateContri
   /// </summary>
   public override void Configure()
   {
-    Put(UpdateContributorRequest.Route);
+    Put("/Contributors");
     AllowAnonymous();
     Options(x => x
       .WithTags("ContributorEndpoints"));
@@ -57,7 +57,9 @@ public class UpdateContributor : Endpoint<UpdateContributorRequest, UpdateContri
 
     await _repository.UpdateAsync(existingContributor, cancellationToken);
 
-    var contributor = new ContributorRecord(existingContributor.Id, existingContributor.Name);
+    var contributor =
+      new ContributorRecord(contributorId: existingContributor.Id, contributorName: existingContributor.Name);
+
     var response = new UpdateContributorResponse { Contributor = contributor };
 
     await SendAsync(response, cancellation: cancellationToken);

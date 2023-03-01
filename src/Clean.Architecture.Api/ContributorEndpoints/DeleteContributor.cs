@@ -7,15 +7,15 @@ using FastEndpoints;
 /// <summary>
 /// The Contributor Delete endpoint.
 /// </summary>
-public class Delete : Endpoint<DeleteContributorRequest>
+public class DeleteContributor : Endpoint<DeleteContributorRequest>
 {
   private readonly IDeleteContributorService _deleteContributorService;
 
   /// <summary>
-  /// Initializes a new instance of the <see cref="Delete"/> class.
+  /// Initializes a new instance of the <see cref="DeleteContributor"/> class.
   /// </summary>
   /// <param name="service">The DeleteContributorService.</param>
-  public Delete(IDeleteContributorService service)
+  public DeleteContributor(IDeleteContributorService service)
   {
     _deleteContributorService = service;
   }
@@ -25,7 +25,7 @@ public class Delete : Endpoint<DeleteContributorRequest>
   /// </summary>
   public override void Configure()
   {
-    Delete(DeleteContributorRequest.Route);
+    Delete("/Contributors");
     AllowAnonymous();
     Options(x => x
       .WithTags("ContributorEndpoints"));
@@ -45,10 +45,12 @@ public class Delete : Endpoint<DeleteContributorRequest>
 
     if (result.Status == ResultStatus.NotFound)
     {
+      Logger.LogInformation("Contributor {@Request} does not exist and cannot be deleted", request);
       await SendNotFoundAsync(cancellationToken);
       return;
     }
 
+    Logger.LogInformation("Contributor {@Request} successfully deleted", request);
     await SendNoContentAsync(cancellationToken);
   }
 }

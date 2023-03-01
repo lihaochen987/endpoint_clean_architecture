@@ -25,7 +25,7 @@ public class CreateContributor : Endpoint<CreateContributorRequest, CreateContri
   /// </summary>
   public override void Configure()
   {
-    Post(CreateContributorRequest.Route);
+    Post("/Contributors");
     AllowAnonymous();
     Options(x => x
       .WithTags("ContributorEndpoints"));

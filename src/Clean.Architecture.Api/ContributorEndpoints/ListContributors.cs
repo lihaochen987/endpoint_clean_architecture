@@ -39,7 +39,7 @@ public class ListContributors : EndpointWithoutRequest<ContributorListResponse>
   public override async Task HandleAsync(CancellationToken cancellationToken)
   {
     var contributors = await _repository.ListAsync(cancellationToken);
-    var response = new ContributorListResponse()
+    var response = new ContributorListResponse
     {
       Contributors = contributors
         .Select(project => new ContributorRecord(project.Id, project.Name))

@@ -8,11 +8,6 @@ using System.ComponentModel.DataAnnotations;
 public class CreateContributorRequest
 {
   /// <summary>
-  /// The route of the endpoint.
-  /// </summary>
-  public const string Route = "/Contributors";
-
-  /// <summary>
   /// Gets or sets the Name of the Contributor.
   /// </summary>
   [Required]
