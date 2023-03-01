@@ -25,27 +25,24 @@ public class GetProjectByIdTests : IClassFixture<CustomWebApplicationFactory<Web
     _client = factory.CreateClient();
   }
 
-  // /// <summary>
-  // /// Fix this test.
-  // /// </summary>
-  // /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-  // [Fact]
-  // public async Task ReturnsNotFoundGivenId0()
-  // {
-  //   // Arrange
-  //   var request = new GetProjectByIdRequest { ProjectId = 0 };
-  //
-  //   // Act
-  //   var (response, result) =
-  //     await _client.GETAsync<GetProjectById, GetProjectByIdRequest, GetProjectByIdResponse>(request);
-  //
-  //   // Assert
-  //   response.ShouldNotBeNull();
-  //   response.StatusCode.ShouldBe(HttpStatusCode.OK);
-  //   result?.Id.ShouldBe(1);
-  //   result?.Name.ShouldBe(AppDbContextSeed.TestProject1.Name);
-  //   result?.Items.Count.ShouldBe(3);
-  // }
+  /// <summary>
+  /// Ensures non-existent project returns NotFound status code.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+  [Fact]
+  public async Task ReturnsNotFoundGivenId0()
+  {
+    // Arrange
+    var request = new GetProjectByIdRequest { ProjectId = 0 };
+
+    // Act
+    var response =
+      await _client.GETAsync<GetProjectById, GetProjectByIdRequest>(request);
+
+    // Assert
+    response.ShouldNotBeNull();
+    response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
+  }
 
   /// <summary>
   /// Ensures that the previously seeded Project is successfully retrieved.

@@ -64,22 +64,22 @@ public class UpdateContributorTests : IClassFixture<CustomWebApplicationFactory<
     response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
   }
 
-  // /// <summary>
-  // /// Uncomment and fix.
-  // /// </summary>
-  // /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-  // [Fact]
-  // public async Task NonExistingContributorReturnsNotFound()
-  // {
-  //   // Arrange
-  //   var request = new UpdateContributorRequest { Id = 0, Name = "Doesnt Exist" };
-  //
-  //   // Act
-  //   var (response, _) =
-  //     await _client.PUTAsync<UpdateContributor, UpdateContributorRequest, UpdateContributorResponse>(request);
-  //
-  //   // Assert
-  //   response.ShouldNotBeNull();
-  //   response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
-  // }
+  /// <summary>
+  /// Ensure non-existing Contributor returns a NotFound status.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+  [Fact]
+  public async Task NonExistingContributorReturnsNotFound()
+  {
+    // Arrange
+    var request = new UpdateContributorRequest { Id = 0, Name = "Doesnt Exist" };
+
+    // Act
+    var response =
+      await _client.PUTAsync<UpdateContributor, UpdateContributorRequest>(request);
+
+    // Assert
+    response.ShouldNotBeNull();
+    response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
+  }
 }

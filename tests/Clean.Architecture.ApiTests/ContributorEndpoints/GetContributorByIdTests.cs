@@ -46,23 +46,22 @@ public class GetContributorByIdTests : IClassFixture<CustomWebApplicationFactory
     result?.contributorName.ShouldBe(AppDbContextSeed.Contributor1.Name);
   }
 
-  // /// <summary>
-  // /// Ensures an invalid Contributor is not found.
-  // /// </summary>
-  // /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-  // [Fact]
-  // public async Task NonExistingContributorReturnsBadRequest()
-  // {
-  //   // Arrange
-  //   var request = new GetContributorByIdRequest { ContributorId = 0 };
-  //
-  //   // Act
-  //   var (response, result) =
-  //     await _client.GETAsync<GetContributorById, GetContributorByIdRequest, ContributorRecord>(request);
-  //
-  //   // Assert
-  //   response.ShouldNotBeNull();
-  //   response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
-  //   result?.contributorId.ShouldBe(1);
-  // }
+  /// <summary>
+  /// Ensures an invalid Contributor is not found.
+  /// </summary>
+  /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
+  [Fact]
+  public async Task NonExistingContributorReturnsBadRequest()
+  {
+    // Arrange
+    var request = new GetContributorByIdRequest { ContributorId = 0 };
+
+    // Act
+    var response =
+      await _client.GETAsync<GetContributorById, GetContributorByIdRequest>(request);
+
+    // Assert
+    response.ShouldNotBeNull();
+    response.StatusCode.ShouldBe(HttpStatusCode.NotFound);
+  }
 }

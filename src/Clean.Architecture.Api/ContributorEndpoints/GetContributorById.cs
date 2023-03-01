@@ -44,6 +44,7 @@ public class GetContributorById : Endpoint<GetContributorByIdRequest, Contributo
   {
     var spec = new ContributorByIdSpec(request.ContributorId);
     var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
+
     if (entity == null)
     {
       await SendNotFoundAsync(cancellationToken);
