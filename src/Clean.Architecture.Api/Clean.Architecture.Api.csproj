@@ -36,5 +36,59 @@
   <ItemGroup>
     <ProjectReference Include="..\Clean.Architecture.Infrastructure\Clean.Architecture.Infrastructure.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="ProjectEndpoints\CreateProject.CreateProjectRequest.cs">
+      <DependentUpon>CreateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\CreateProject.CreateProjectResponse.cs">
+      <DependentUpon>CreateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\DeleteProject.DeleteProjectRequest.cs">
+      <DependentUpon>DeleteProject.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\GetProjectById.GetProjectByIdRequest.cs">
+      <DependentUpon>GetProjectById.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\GetProjectById.GetProjectByIdResponse.cs">
+      <DependentUpon>GetProjectById.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\ListIncompleteProjects.ListIncompleteRequest.cs">
+      <DependentUpon>ListIncompleteProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\ListIncompleteProjects.ListIncompleteResponse.cs">
+      <DependentUpon>ListIncompleteProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\ListProjects.ProjectListResponse.cs">
+      <DependentUpon>ListProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\UpdateProject.UpdateProjectRequest.cs">
+      <DependentUpon>UpdateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProjectEndpoints\UpdateProject.UpdateProjectResponse.cs">
+      <DependentUpon>UpdateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\Create.CreateContributorRequest.cs">
+      <DependentUpon>CreateContributor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\Create.CreateContributorResponse.cs">
+      <DependentUpon>CreateContributor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\DeleteContributor.DeleteContributorRequest.cs">
+      <DependentUpon>DeleteContributor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\GetContributorById.GetContributorByIdRequest.cs">
+      <DependentUpon>GetContributorById.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\ListContributors.ContributorListResponse.cs">
+      <DependentUpon>ListContributors.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\UpdateContributor.UpdateContributorRequest.cs">
+      <DependentUpon>UpdateContributor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ContributorEndpoints\UpdateContributor.UpdateContributorResponse.cs">
+      <DependentUpon>UpdateContributor.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
 </Project>
